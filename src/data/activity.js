@@ -11,10 +11,10 @@ export const POPUP_TRANSITION = 600;
 
 export const BOOKING_VISIBLE = 5500;
 export const BOOKING_TRANSITION = 500;
-export const BOOKING_FIRST_DELAY_MIN = 9000;
-export const BOOKING_FIRST_DELAY_MAX = 16000;
-export const BOOKING_GAP_MIN = 22000;
-export const BOOKING_GAP_MAX = 40000;
+export const BOOKING_FIRST_DELAY_MIN = 1200;
+export const BOOKING_FIRST_DELAY_MAX = 2500;
+export const BOOKING_GAP_MIN = 12000;
+export const BOOKING_GAP_MAX = 18000;
 
 export const heroActivity = {
   holdMs: POPUP_INTERVAL,

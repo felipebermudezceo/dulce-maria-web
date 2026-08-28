@@ -25,8 +25,12 @@ export default function App() {
         <CTA />
       </main>
       <Footer />
-      <BookingNotice />
-      <WhatsAppButton />
+      <div className="float-bar">
+        <div className="float-bar-left">
+          <BookingNotice />
+        </div>
+        <WhatsAppButton />
+      </div>
     </>
   );
 }
