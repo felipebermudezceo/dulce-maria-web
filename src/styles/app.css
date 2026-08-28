@@ -617,7 +617,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   width: max-content;
   will-change: transform;
   backface-visibility: hidden;
-  animation: reviews-marquee 82s linear infinite;
+  animation: reviews-marquee 180s linear infinite;
 }
 .reviews-set {
   display: flex;
