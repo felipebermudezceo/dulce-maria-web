@@ -30,11 +30,46 @@ export const services = [
       "Hola, quiero agendar una cita para una ecografía mamaria",
   },
   {
-    id: "obstetricas",
-    title: "Ecografías Obstétricas",
-    description: "Control prenatal, 2D, 3D, 4D y doppler fetal.",
+    id: "ginecologica",
+    title: "Ecografía Ginecológica",
+    description: "Útero, ovarios y pelvis, con evaluación detallada.",
     whatsappMessage:
-      "Hola, quiero agendar una cita para una ecografía obstétrica",
+      "Hola, quiero agendar una cita para una ecografía ginecológica",
+  },
+  {
+    id: "crecimiento",
+    title: "Crecimiento y desarrollo",
+    description: "Ecografía obstétrica para evaluar el crecimiento y el desarrollo fetal.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para una ecografía de crecimiento y desarrollo",
+  },
+  {
+    id: "anatomico",
+    title: "Detalle anatómico",
+    description: "Estudio morfológico para revisar la anatomía fetal.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para un detalle anatómico",
+  },
+  {
+    id: "translucencia",
+    title: "Translucencia nucal",
+    description: "Tamizaje del primer trimestre con medición de la translucencia nucal.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para una translucencia nucal",
+  },
+  {
+    id: "doppler-fetal",
+    title: "Doppler fetal",
+    description: "Evaluación del flujo sanguíneo materno-fetal.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para un doppler fetal",
+  },
+  {
+    id: "biofisico",
+    title: "Perfil biofísico",
+    description: "Valoración del bienestar fetal en el tercer trimestre.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para un perfil biofísico",
   },
   {
     id: "renales",
@@ -48,6 +83,13 @@ export const services = [
     title: "Doppler Vascular",
     description: "Estudio del flujo sanguíneo con equipos de última generación.",
     whatsappMessage: "Hola, quiero agendar una cita para una doppler vascular",
+  },
+  {
+    id: "articular",
+    title: "Ecografía Articular",
+    description: "Evaluación de articulaciones, músculos y tejidos blandos.",
+    whatsappMessage:
+      "Hola, quiero agendar una cita para una ecografía articular",
   },
 ];
 

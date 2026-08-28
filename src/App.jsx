@@ -6,6 +6,7 @@ import { Reviews } from "./components/Reviews";
 import { Location } from "./components/Location";
 import { CTA } from "./components/CTA";
 import { Footer } from "./components/Footer";
+import { BookingNotice } from "./components/BookingNotice";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <CTA />
       </main>
       <Footer />
+      <BookingNotice />
       <WhatsAppButton />
     </>
   );
