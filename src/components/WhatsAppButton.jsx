@@ -1,28 +1,20 @@
-import { mobileBar } from "../data/content";
 import { whatsappUrl } from "../lib/whatsapp";
+import { HeroNotice } from "./HeroNotice";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function WhatsAppButton() {
   return (
-    <>
+    <div className="wa-dock">
+      <HeroNotice compact />
       <a
         className="wa-fab"
         href={whatsappUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={mobileBar.action}
+        aria-label="Contactar por WhatsApp"
       >
-        <WhatsAppIcon size={24} />
+        <WhatsAppIcon size={26} />
       </a>
-      <div className="wa-bar">
-        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-          <span>{mobileBar.label}</span>
-          <strong>
-            <WhatsAppIcon size={16} />
-            {mobileBar.action}
-          </strong>
-        </a>
-      </div>
-    </>
+    </div>
   );
 }

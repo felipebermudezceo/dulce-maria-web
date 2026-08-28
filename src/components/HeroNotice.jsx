@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
 import { getHeroNotices, heroActivity } from "../data/activity";
 import { Icon } from "./Icon";
-import { WhatsAppIcon } from "./WhatsAppIcon";
 
-function NoticeIcon({ name }) {
-  if (name === "whatsapp") return <WhatsAppIcon size={18} />;
-  return <Icon name={name} size={18} />;
-}
-
-export function HeroNotice() {
+export function HeroNotice({ compact = false }) {
   const notices = getHeroNotices();
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState("in");
@@ -37,22 +31,25 @@ export function HeroNotice() {
 
   return (
     <aside
-      className={`hero-card is-${phase}`}
+      className={`hero-card${compact ? " is-compact" : ""} is-${phase}`}
       aria-live="polite"
+      aria-atomic="true"
       style={{ "--hero-notice-hold": `${heroActivity.holdMs}ms` }}
     >
       <div className="hero-card-body" key={index}>
         <span className="hero-card-icon">
-          <NoticeIcon name={item.icon} />
+          <Icon name={compact ? "check" : item.icon} size={compact ? 14 : 18} />
         </span>
         <p>
           <strong>{item.title}</strong>
-          {item.text}
+          {compact ? null : item.text}
         </p>
       </div>
-      <span className="hero-card-progress" aria-hidden="true">
-        <i key={index} className={phase === "in" ? "is-running" : "is-complete"} />
-      </span>
+      {compact ? null : (
+        <span className="hero-card-progress" aria-hidden="true">
+          <i key={index} className={phase === "in" ? "is-running" : "is-complete"} />
+        </span>
+      )}
     </aside>
   );
 }
