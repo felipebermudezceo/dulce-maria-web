@@ -13,6 +13,8 @@ Sitio web de la consulta de ecografías. El contenido editable está separado de
 | Textos y foto de la doctora | `src/data/doctor.js` |
 | Hero, menú, botón del header y textos generales | `src/data/content.js` |
 | Botón Cursos (texto, URL, visibilidad) | `src/data/courses.js` |
+| Cualidades del consultorio (pop-up de la foto) | `src/data/activity.js` |
+| Avisos de citas agendadas (izquierda) | `src/data/activity.js` |
 | Fotos | `public/images/` |
 
 Las fotos actuales:

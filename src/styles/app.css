@@ -400,6 +400,47 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 .hero-card strong { display: block; font-size: 0.86rem; color: var(--petrol); line-height: 1.3; }
 .hero-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.35; min-width: 0; }
 
+.booking-notice {
+  --booking-notice-transition: 500ms;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  width: min(280px, 100%);
+  padding: 10px 16px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.booking-notice.is-in {
+  animation: booking-notice-in var(--booking-notice-transition) var(--ease) both;
+}
+.booking-notice.is-out {
+  animation: booking-notice-out var(--booking-notice-transition) var(--ease) both;
+}
+.booking-notice-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  color: var(--teal);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.booking-notice strong {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--petrol);
+  line-height: 1.3;
+}
+.booking-notice p {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.35;
+  min-width: 0;
+}
+
 /* Trust bar */
 .trust-bar {
   padding: 4px 0 8px;
@@ -803,19 +844,25 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 .footer-links { display: flex; flex-direction: column; gap: 8px; }
 .footer-grid a:hover { color: var(--teal); }
 
-.wa-dock {
+.float-bar {
   position: fixed;
+  left: 22px;
   right: 22px;
   bottom: 22px;
   z-index: 26;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
   pointer-events: none;
 }
-.wa-dock > * { pointer-events: auto; }
-.wa-dock .hero-card { display: none; }
+.float-bar > * { pointer-events: auto; }
+.float-bar-left {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .wa-fab {
   flex-shrink: 0;
   width: 56px;
@@ -1122,47 +1169,24 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .location-map iframe { min-height: 280px; }
   .footer-grid { grid-template-columns: 1fr; }
 
-  .wa-dock {
+  .float-bar {
     left: 12px;
     right: 12px;
     bottom: calc(14px + env(safe-area-inset-bottom));
     gap: 8px;
   }
-  .wa-dock .hero-card {
-    display: flex;
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    flex: 0 1 auto;
-    width: max-content;
-    max-width: calc(100% - 60px);
-    min-width: 0;
-    min-height: 44px;
-    height: 44px;
-    padding: 0 12px;
-    transform: none;
-    animation: none;
+  .booking-notice {
+    min-height: 52px;
+    width: min(260px, 100%);
+    padding: 8px 12px;
   }
-  .wa-dock .hero-card-body { gap: 8px; }
-  .wa-dock .hero-card-icon {
-    width: 22px;
-    height: 22px;
-    border-radius: 7px;
+  .booking-notice-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
   }
-  .wa-dock .hero-card-icon svg { width: 12px; height: 12px; }
-  .wa-dock .hero-card p {
-    margin: 0;
-    min-width: 0;
-    overflow: hidden;
-  }
-  .wa-dock .hero-card strong {
-    font-size: 0.75rem;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .booking-notice strong { font-size: 0.78rem; }
+  .booking-notice p { font-size: 0.72rem; }
   .wa-fab {
     width: 52px;
     height: 52px;
@@ -1198,13 +1222,11 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     line-height: 1.5;
   }
   .hero-media > img { height: 270px; }
-  .wa-dock .hero-card {
-    max-width: min(210px, calc(100% - 56px));
-    height: 40px;
-    min-height: 40px;
-    padding: 0 10px;
+  .booking-notice {
+    min-height: 48px;
+    padding: 6px 10px;
   }
-  .wa-dock .hero-card strong { font-size: 0.68rem; }
+  .booking-notice strong { font-size: 0.68rem; }
   .wa-fab { width: 48px; height: 48px; }
 }
 
@@ -1233,13 +1255,6 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     line-height: 1.48;
   }
   .hero-media > img { height: 248px; }
-  .wa-dock { gap: 6px; }
-  .wa-dock .hero-card {
-    height: 40px;
-    min-height: 40px;
-    padding: 0 8px;
-  }
-  .wa-dock .hero-card strong { font-size: 0.64rem; }
   .wa-fab { width: 46px; height: 46px; }
   .trust-pills li { font-size: 0.64rem; }
   .study-card { padding: 14px 12px 12px; }
@@ -1255,6 +1270,16 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 @keyframes hero-card-in-center {
   from { opacity: 0; transform: translate3d(-50%, 14px, 0); }
   to { opacity: 1; transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes booking-notice-in {
+  from { opacity: 0; transform: translate3d(-18px, 0, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes booking-notice-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translate3d(-18px, 0, 0); }
 }
 
 @keyframes hero-notice-in {

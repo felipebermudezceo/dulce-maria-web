@@ -5,9 +5,15 @@ const serviceIcons = {
   abdominales: "plus",
   tiroides: "drop",
   mamarias: "heart",
-  obstetricas: "pin",
+  ginecologica: "pin",
+  crecimiento: "heart",
+  anatomico: "layers",
+  translucencia: "drop",
+  "doppler-fetal": "pulse",
+  biofisico: "clock",
   renales: "layers",
   doppler: "pulse",
+  articular: "layers",
 };
 
 export function UltrasoundGrid() {
