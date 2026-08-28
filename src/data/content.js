@@ -106,6 +106,6 @@ export const mobileBar = {
 
 export const reviewsSection = {
   eyebrow: "Reseñas",
-  title: "Lo que dicen nuestras pacientes",
+  title: "Lo que dicen nuestros pacientes",
   googleCta: "Ver todas las reseñas en Google",
 };

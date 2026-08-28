@@ -1,53 +1,38 @@
 import { reviews } from "../data/reviews";
 import { reviewsSection } from "../data/content";
-import { contact } from "../data/contact";
 import { Reveal } from "./Reveal";
+import { ReviewsCarousel } from "./ReviewsCarousel";
 
 export function Reviews() {
-  const [featured, ...rest] = reviews.items;
-
   return (
     <Reveal as="section" className="section reviews" id="reseñas">
       <div className="wrap">
         <header className="reviews-head">
-          <div>
-            <p className="eyebrow">{reviewsSection.eyebrow}</p>
-            <h2>{reviewsSection.title}</h2>
-          </div>
-          <p className="rating-mark">
+          <p className="eyebrow">{reviewsSection.eyebrow}</p>
+          <h2>{reviewsSection.title}</h2>
+          <p className="reviews-score">
             <strong>{reviews.rating}</strong>
+            <span aria-hidden="true">★★★★★</span>
             <span>
-              ★★★★★
-              <br />
-              {reviews.totalReviews} {reviews.sourceLabel}
+              · {reviews.totalReviews} {reviews.sourceLabel}
             </span>
           </p>
         </header>
 
-        <article className="review-featured">
-          <p>“{featured.quote}”</p>
-          <cite>{featured.name}</cite>
-        </article>
-
-        <div className="review-grid">
-          {rest.map((review) => (
-            <article key={review.name} className="review-item">
-              <p>“{review.quote}”</p>
-              <cite>
-                <span aria-hidden="true">{review.initials}</span>
-                {review.name}
-              </cite>
-            </article>
-          ))}
-        </div>
+        <ReviewsCarousel
+          items={reviews.items}
+          source={reviews.source}
+          defaultStars={reviews.defaultStars}
+        />
 
         <a
-          className="text-link"
-          href={contact.address.mapsUrl}
+          className="text-link reviews-google-link"
+          href={reviews.googleReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
           {reviewsSection.googleCta}
+          <span aria-hidden="true"> →</span>
         </a>
       </div>
     </Reveal>

@@ -2,13 +2,22 @@
  * RESEÑAS DE GOOGLE
  * -----------------
  * rating y totalReviews deben coincidir con Google.
- * Para agregar una reseña, añade un objeto al arreglo.
+ * googleReviewsUrl: enlace al perfil de Google (hoy el de Maps).
+ *
+ * Para agregar una reseña, copia un objeto en `items`.
+ * Campos opcionales por reseña:
+ *   stars, date, source, photo, initials
+ *
+ * Más adelante este archivo puede alimentarse desde una API de Google.
  */
 
 export const reviews = {
   rating: "5.0",
   totalReviews: 139,
+  source: "Google",
   sourceLabel: "opiniones en Google",
+  googleReviewsUrl: "https://maps.app.goo.gl/LsEqjvCtK9F5rEM58",
+  defaultStars: 5,
   items: [
     {
       initials: "SB",
