@@ -1,8 +1,12 @@
 import { site, navigation, locationSection } from "../data/content";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
+import { useRouter } from "../lib/router";
 
 export function Footer() {
+  const { path } = useRouter();
+  const prefix = path === "/" ? "" : "/";
+
   return (
     <footer className="site-footer">
       <div className="wrap footer-grid">
@@ -19,7 +23,7 @@ export function Footer() {
         </address>
         <nav aria-label="Pie de página">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
+            <a key={item.href} href={`${prefix}${item.href}`}>
               {item.label}
             </a>
           ))}

@@ -1,0 +1,567 @@
+/**
+ * Estilos exclusivos de /diplomado.
+ * No alteran la landing principal.
+ */
+
+.course-page {
+  background: var(--white);
+}
+
+.course-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(88svh, 760px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.course-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.course-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+
+.course-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 58, 72, 0.28) 0%, rgba(15, 58, 72, 0.78) 62%, rgba(15, 58, 72, 0.92) 100%);
+}
+
+.course-hero-inner {
+  width: min(var(--wrap), calc(100% - var(--gutter)));
+  margin: 0 auto;
+  padding: 48px 0 56px;
+  text-align: center;
+}
+
+.course-hero .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.course-hero h1 {
+  margin: 0 auto 16px;
+  max-width: 14ch;
+  font-size: clamp(2.35rem, 8vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.course-hero-title,
+.course-hero-accent {
+  display: block;
+}
+
+.course-hero-accent {
+  color: var(--teal);
+}
+
+.course-hero-lead {
+  margin: 0 auto 28px;
+  max-width: 36ch;
+  color: rgba(245, 249, 250, 0.88);
+}
+
+.course-hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.course-hero-actions .btn {
+  width: min(100%, 360px);
+  min-height: 56px;
+}
+
+.course-hero-actions .btn-ghost {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.course-hero-actions .btn-ghost:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.course-section-head {
+  max-width: 36rem;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.course-section-head h2 {
+  margin-bottom: 10px;
+}
+
+.course-section-head .lead {
+  margin: 0 auto;
+}
+
+.course-modes {
+  background: var(--ice);
+}
+
+.course-mode-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.course-mode-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 22px 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(15, 58, 72, 0.05);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.course-mode-card h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  letter-spacing: -0.04em;
+  color: var(--petrol);
+  text-transform: uppercase;
+}
+
+.course-mode-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.course-mode-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.course-mode-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.course-mode-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.course-mode-card li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--teal);
+}
+
+.course-mode-card .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.course-mode-card.is-featured {
+  border-color: rgba(27, 180, 196, 0.45);
+  background: linear-gradient(180deg, #f7fcfd 0%, var(--white) 42%);
+  box-shadow: 0 14px 32px rgba(15, 58, 72, 0.08);
+}
+
+.course-mode-card.is-selected {
+  border-color: var(--teal);
+}
+
+.course-mode-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.course-benefits {
+  background: var(--white);
+}
+
+.course-benefit-grid {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-benefit-card {
+  display: grid;
+  gap: 10px;
+  padding: 22px 20px;
+  background: var(--ice);
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.course-benefit-card span {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+}
+
+.course-benefit-card svg {
+  color: var(--petrol);
+}
+
+.course-benefit-card strong {
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  color: var(--petrol);
+}
+
+.course-booking {
+  background: var(--ice);
+}
+
+.booking-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.booking-summary,
+.booking-panel,
+.booking-confirmation {
+  padding: 24px 20px;
+  background: var(--white);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(15, 58, 72, 0.04);
+}
+
+.booking-summary h3,
+.booking-panel h3,
+.booking-confirmation h3 {
+  margin: 0 0 16px;
+  color: var(--petrol);
+  letter-spacing: -0.03em;
+}
+
+.booking-summary dl,
+.booking-confirmation dl {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
+.booking-summary div,
+.booking-confirmation div {
+  display: grid;
+  gap: 2px;
+}
+
+.booking-summary dt,
+.booking-confirmation dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.booking-summary dd,
+.booking-confirmation dd {
+  margin: 0;
+  color: var(--petrol);
+  font-weight: 600;
+}
+
+.booking-hint {
+  margin: 0;
+  color: var(--muted);
+}
+
+.booking-calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.booking-calendar-nav h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.booking-calendar-nav button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--petrol);
+  font-size: 1.3rem;
+}
+
+.booking-weekdays,
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.booking-weekdays span {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.booking-day {
+  min-height: 42px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ice);
+  color: var(--petrol);
+  font-weight: 700;
+}
+
+.booking-day.is-empty {
+  background: transparent;
+}
+
+.booking-day:disabled {
+  color: #b5c2c6;
+  background: transparent;
+}
+
+.booking-day.is-available {
+  background: var(--mint);
+}
+
+.booking-day.is-selected,
+.booking-time.is-selected {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.booking-times {
+  margin-top: 22px;
+}
+
+.booking-times h4 {
+  margin: 0 0 12px;
+  color: var(--petrol);
+}
+
+.booking-time-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.booking-time {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--petrol);
+  font-weight: 700;
+}
+
+.booking-form-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--petrol);
+}
+
+.booking-form input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.booking-form input:focus {
+  outline: 2px solid rgba(27, 180, 196, 0.35);
+  border-color: var(--teal);
+}
+
+.booking-form-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.booking-form-actions .btn {
+  width: 100%;
+}
+
+.booking-error {
+  margin: 12px 0 0;
+  color: #9b2c2c;
+  font-weight: 600;
+}
+
+.booking-confirmation {
+  text-align: center;
+}
+
+.booking-confirmation-name {
+  margin: 0 0 18px;
+  font-weight: 700;
+  color: var(--petrol);
+}
+
+.booking-confirmation .btn {
+  width: min(100%, 280px);
+}
+
+.course-page .wa-dock {
+  left: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .course-mode-card:hover,
+  .course-benefit-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .course-mode-card:hover {
+    box-shadow: 0 16px 32px rgba(15, 58, 72, 0.1);
+  }
+
+  .booking-day.is-available:hover,
+  .booking-time:hover,
+  .booking-calendar-nav button:hover {
+    border-color: var(--teal);
+    color: var(--petrol);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .course-hero-inner .eyebrow {
+    animation: rise 0.6s var(--ease) both;
+  }
+  .course-hero-inner h1 {
+    animation: rise 0.72s var(--ease) 0.08s both;
+  }
+  .course-hero-lead {
+    animation: rise 0.7s var(--ease) 0.14s both;
+  }
+  .course-hero-actions {
+    animation: rise 0.7s var(--ease) 0.2s both;
+  }
+  .course-modes.is-visible .course-mode-card {
+    animation: rise 0.65s var(--ease) both;
+  }
+  .course-modes.is-visible .course-mode-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .course-benefits.is-visible .course-benefit-card {
+    animation: rise 0.55s var(--ease) both;
+  }
+  .course-benefits.is-visible .course-benefit-card:nth-child(2) { animation-delay: 0.06s; }
+  .course-benefits.is-visible .course-benefit-card:nth-child(3) { animation-delay: 0.12s; }
+  .course-benefits.is-visible .course-benefit-card:nth-child(4) { animation-delay: 0.18s; }
+  .course-benefits.is-visible .course-benefit-card:nth-child(5) { animation-delay: 0.24s; }
+  .course-benefits.is-visible .course-benefit-card:nth-child(6) { animation-delay: 0.3s; }
+}
+
+@media (min-width: 768px) {
+  .course-hero {
+    align-items: center;
+  }
+
+  .course-hero-inner {
+    text-align: left;
+    padding: 88px 0 96px;
+  }
+
+  .course-hero h1,
+  .course-hero-lead {
+    margin-left: 0;
+  }
+
+  .course-hero-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .course-hero-actions .btn {
+    width: auto;
+    min-width: 200px;
+  }
+
+  .course-mode-grid {
+    grid-template-columns: 1fr 1.08fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .course-benefit-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .booking-layout {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .booking-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-form-actions {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .course-hero-inner {
+    max-width: 640px;
+    margin-left: max(var(--gutter), calc((100% - var(--wrap)) / 2));
+    margin-right: auto;
+    width: auto;
+  }
+
+  .course-hero h1 {
+    max-width: 12ch;
+  }
+}

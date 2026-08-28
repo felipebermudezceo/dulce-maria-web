@@ -2,10 +2,10 @@ import { whatsappUrl } from "../lib/whatsapp";
 import { HeroNotice } from "./HeroNotice";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-export function WhatsAppButton() {
+export function WhatsAppButton({ showNotice = true }) {
   return (
-    <div className="wa-dock">
-      <HeroNotice compact />
+    <div className={`wa-dock${showNotice ? "" : " is-fab-only"}`}>
+      {showNotice ? <HeroNotice compact /> : null}
       <a
         className="wa-fab"
         href={whatsappUrl()}

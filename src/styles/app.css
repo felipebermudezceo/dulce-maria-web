@@ -159,6 +159,11 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   border-color: var(--petrol);
   background: var(--ice);
 }
+.btn-header-ghost.is-active {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--mint);
+}
 
 /* Header */
 .site-header {
