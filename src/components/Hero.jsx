@@ -1,7 +1,8 @@
-import { hero, heroCard, trustItems } from "../data/content";
+import { hero, trustItems } from "../data/content";
 import { whatsappUrl } from "../lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Icon } from "./Icon";
+import { HeroNotice } from "./HeroNotice";
 
 const trustIcons = ["shield", "monitor", "check"];
 
@@ -44,15 +45,7 @@ export function Hero() {
 
         <div className="hero-media">
           <img src={hero.photo} alt={hero.photoAlt} />
-          <aside className="hero-card">
-            <span className="hero-card-icon">
-              <Icon name="clock" size={18} />
-            </span>
-            <p>
-              <strong>{heroCard.title}</strong>
-              {heroCard.text}
-            </p>
-          </aside>
+          <HeroNotice />
         </div>
       </div>
     </section>

@@ -37,11 +37,6 @@ export const hero = {
   photoAlt: "Dra. Dulce María",
 };
 
-export const heroCard = {
-  title: "Atención rápida y sin filas",
-  text: "Resultados el mismo día",
-};
-
 export const patientPhoto = {
   src: "/images/paciente.jpg",
   alt: "Paciente con su bebé en control de ecografía",

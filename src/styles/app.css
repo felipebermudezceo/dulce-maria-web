@@ -325,20 +325,59 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   border-radius: var(--radius);
 }
 .hero-card {
+  --hero-notice-hold: 4.5s;
   position: absolute;
   right: 20px;
   bottom: 20px;
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 12px;
-  width: min(260px, calc(100% - 40px));
+  min-height: 88px;
+  width: min(280px, calc(100% - 40px));
   max-width: calc(100% - 40px);
-  padding: 14px 16px;
+  padding: 14px 16px 18px;
   background: var(--white);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow);
-  animation: hero-card-in 0.75s var(--ease) 0.3s both, hero-card-pulse 9s var(--ease) 2.4s infinite;
+  animation: hero-card-in 0.75s var(--ease) 0.3s both;
+}
+.hero-card-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+.hero-card.is-in .hero-card-body {
+  animation: hero-notice-in 0.45s var(--ease) both;
+}
+.hero-card.is-out .hero-card-body {
+  animation: hero-notice-out 0.45s var(--ease) both;
+}
+.hero-card-progress {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 7px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(15, 58, 72, 0.08);
+}
+.hero-card-progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--teal);
+  opacity: 0.45;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.hero-card-progress i.is-running {
+  animation: hero-notice-progress var(--hero-notice-hold) linear forwards;
+}
+.hero-card-progress i.is-complete {
+  transform: scaleX(1);
 }
 .hero-card-icon {
   width: 40px;
@@ -351,7 +390,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   flex-shrink: 0;
 }
 .hero-card strong { display: block; font-size: 0.86rem; color: var(--petrol); line-height: 1.3; }
-.hero-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.35; }
+.hero-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.35; min-width: 0; }
 
 /* Trust bar */
 .trust-bar {
@@ -859,14 +898,15 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .hero-card {
     left: 50%;
     right: auto;
-    bottom: 12px;
-    width: min(78%, 270px);
-    max-width: 78%;
-    padding: 8px 10px;
-    gap: 8px;
+    bottom: 10px;
+    width: min(68%, 236px);
+    max-width: 68%;
+    min-height: 64px;
+    padding: 8px 10px 14px;
     transform: translateX(-50%);
-    animation: hero-card-in-center 0.75s var(--ease) 0.3s both, hero-card-pulse-center 9s var(--ease) 2.4s infinite;
+    animation: hero-card-in-center 0.75s var(--ease) 0.3s both;
   }
+  .hero-card-body { gap: 8px; }
   .hero-card-icon {
     width: 28px;
     height: 28px;
@@ -875,6 +915,11 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .hero-card-icon svg { width: 14px; height: 14px; }
   .hero-card strong { font-size: 0.72rem; line-height: 1.25; }
   .hero-card p { font-size: 0.66rem; line-height: 1.3; }
+  .hero-card-progress {
+    left: 10px;
+    right: 10px;
+    bottom: 5px;
+  }
 
   .hero-copy {
     display: flex;
@@ -1088,7 +1133,6 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 
 @media (max-width: 375px) {
   .hero-media > img { height: 248px; object-position: 50% 10%; }
-  .hero-card { width: min(82%, 250px); max-width: 82%; }
 }
 
 @media (max-width: 360px) {
@@ -1096,7 +1140,6 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .hero-copy h1 { font-size: 2.125rem; }
   .hero-copy .lead { font-size: 1.0625rem; }
   .hero-media > img { height: 248px; }
-  .hero-card { max-width: 86%; width: 86%; }
   .trust-pills li { font-size: 0.64rem; }
   .study-card { padding: 14px 12px 12px; }
   .study-card strong { font-size: 0.8rem; }
@@ -1113,16 +1156,19 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   to { opacity: 1; transform: translate3d(-50%, 0, 0); }
 }
 
-@keyframes hero-card-pulse {
-  0%, 78%, 100% { transform: translate3d(0, 0, 0); }
-  84% { transform: translate3d(0, -4px, 0); }
-  90% { transform: translate3d(0, 0, 0); }
+@keyframes hero-notice-in {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: none; }
 }
 
-@keyframes hero-card-pulse-center {
-  0%, 78%, 100% { transform: translate3d(-50%, 0, 0); }
-  84% { transform: translate3d(-50%, -4px, 0); }
-  90% { transform: translate3d(-50%, 0, 0); }
+@keyframes hero-notice-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translate3d(0, -8px, 0); }
+}
+
+@keyframes hero-notice-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 @keyframes rise {

@@ -1,6 +1,5 @@
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
-import { TrustBar } from "./components/TrustBar";
 import { Services } from "./components/Services";
 import { AboutDoctor } from "./components/AboutDoctor";
 import { Reviews } from "./components/Reviews";
@@ -18,7 +17,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <TrustBar />
         <Services />
         <AboutDoctor />
         <Reviews />
