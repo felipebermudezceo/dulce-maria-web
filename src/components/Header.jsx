@@ -128,10 +128,6 @@ export function Header() {
             <br />
             {contact.address.city}
           </p>
-          <CoursesLink
-            className="btn btn-header-ghost"
-            onNavigate={() => setOpen(false)}
-          />
           <a
             className="btn btn-fill"
             href={whatsappUrl()}
