@@ -327,7 +327,8 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   border-radius: var(--radius);
 }
 .hero-card {
-  --hero-notice-hold: 4.5s;
+  --hero-notice-hold: 10s;
+  --hero-notice-transition: 600ms;
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -351,10 +352,10 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   min-width: 0;
 }
 .hero-card.is-in .hero-card-body {
-  animation: hero-notice-in 0.45s var(--ease) both;
+  animation: hero-notice-in var(--hero-notice-transition) var(--ease) both;
 }
 .hero-card.is-out .hero-card-body {
-  animation: hero-notice-out 0.45s var(--ease) both;
+  animation: hero-notice-out var(--hero-notice-transition) var(--ease) both;
 }
 .hero-card-progress {
   position: absolute;
@@ -1252,13 +1253,13 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 }
 
 @keyframes hero-notice-in {
-  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  from { opacity: 0; transform: translate3d(10px, 0, 0); }
   to { opacity: 1; transform: none; }
 }
 
 @keyframes hero-notice-out {
   from { opacity: 1; transform: none; }
-  to { opacity: 0; transform: translate3d(0, -8px, 0); }
+  to { opacity: 0; transform: translate3d(-10px, 0, 0); }
 }
 
 @keyframes hero-notice-progress {

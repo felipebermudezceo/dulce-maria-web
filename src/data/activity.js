@@ -1,13 +1,16 @@
 /**
- * CUALIDADES DEL POP-UP DEL HERO
- * ------------------------------
- * Frases cortas respaldadas por el contenido actual de la clínica.
- * No afirmar aquí nada que no esté ya en content.js o services.js.
+ * CUALIDADES Y ACTIVIDAD DEL POP-UP DEL HERO
+ * ------------------------------------------
+ * Rotación visible en desktop (sobre la foto) y en móvil (flotante).
+ * POPUP_INTERVAL controla cuánto dura cada mensaje.
  */
 
+export const POPUP_INTERVAL = 10000;
+export const POPUP_TRANSITION = 600;
+
 export const heroActivity = {
-  holdMs: 4500,
-  exitMs: 450,
+  holdMs: POPUP_INTERVAL,
+  exitMs: POPUP_TRANSITION,
   notices: [
     {
       icon: "clock",
@@ -33,6 +36,11 @@ export const heroActivity = {
       icon: "layers",
       title: "Ecografías 2D, 3D y 4D",
       text: "Control prenatal, 2D, 3D, 4D y doppler fetal",
+    },
+    {
+      icon: "calendar",
+      title: "Laura agendó una cita",
+      text: "Agenda la tuya por WhatsApp",
     },
   ],
 };

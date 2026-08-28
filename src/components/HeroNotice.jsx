@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getHeroNotices, heroActivity } from "../data/activity";
+import { getHeroNotices, POPUP_INTERVAL, POPUP_TRANSITION } from "../data/activity";
 import { Icon } from "./Icon";
 
 export function HeroNotice({ compact = false }) {
@@ -15,14 +15,14 @@ export function HeroNotice({ compact = false }) {
     }
 
     if (phase === "in") {
-      const hold = window.setTimeout(() => setPhase("out"), heroActivity.holdMs);
+      const hold = window.setTimeout(() => setPhase("out"), POPUP_INTERVAL);
       return () => window.clearTimeout(hold);
     }
 
     const swap = window.setTimeout(() => {
       setIndex((current) => (current + 1) % notices.length);
       setPhase("in");
-    }, heroActivity.exitMs);
+    }, POPUP_TRANSITION);
 
     return () => window.clearTimeout(swap);
   }, [phase, notices.length]);
@@ -34,7 +34,10 @@ export function HeroNotice({ compact = false }) {
       className={`hero-card${compact ? " is-compact" : ""} is-${phase}`}
       aria-live="polite"
       aria-atomic="true"
-      style={{ "--hero-notice-hold": `${heroActivity.holdMs}ms` }}
+      style={{
+        "--hero-notice-hold": `${POPUP_INTERVAL}ms`,
+        "--hero-notice-transition": `${POPUP_TRANSITION}ms`,
+      }}
     >
       <div className="hero-card-body" key={index}>
         <span className="hero-card-icon">
