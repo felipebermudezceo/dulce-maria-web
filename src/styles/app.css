@@ -933,7 +933,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .header-actions .btn-header { box-shadow: none; }
   .menu-toggle { width: 36px; height: 36px; }
 
-  .hero { padding: 6px 0 10px; }
+  .hero { padding: 4px 0 8px; }
   .hero-inner { gap: 12px; }
   .hero-media { border-radius: 24px; }
   .hero-media > img {
@@ -948,41 +948,50 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     align-items: center;
     text-align: center;
     padding-inline: 4px;
+    padding-bottom: 4px;
   }
   .hero-copy .eyebrow {
-    margin-bottom: 10px;
-    font-size: 0.64rem;
-    letter-spacing: 0.16em;
+    margin-bottom: 8px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
   }
   .hero-copy h1 {
-    width: min(100%, 22rem);
-    margin-bottom: 10px;
-    font-size: clamp(2.2rem, 6.2vw + 0.85rem, 2.7rem);
+    width: min(100%, 360px);
+    max-width: 360px;
+    margin: 0 auto 12px;
+    font-size: clamp(2.5rem, 13.8vw - 0.35rem, 3.2rem);
     font-weight: 800;
-    line-height: 1.14;
-    letter-spacing: -0.045em;
-    text-wrap: balance;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    text-wrap: wrap;
   }
   .hero-title-main,
-  .hero-title-accent { display: block; }
+  .hero-title-accent {
+    display: block;
+    text-wrap: wrap;
+  }
   .hero-copy .lead {
-    max-width: 32ch;
-    margin: 0 auto 12px;
-    font-size: 1.125rem;
-    line-height: 1.45;
+    width: min(100%, 360px);
+    max-width: 360px;
+    margin: 0 auto 16px;
+    font-size: clamp(1.125rem, 1.4vw + 0.82rem, 1.25rem);
+    line-height: 1.5;
+    text-wrap: pretty;
   }
   .hero-actions {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 340px;
-    gap: 10px;
-    margin-bottom: 12px;
+    max-width: 360px;
+    gap: 12px;
+    margin: 0 auto 10px;
   }
   .hero-actions .btn-fill {
     width: 100%;
     min-height: 56px;
-    border-radius: 16px;
+    border-radius: 999px;
+    font-size: 1.125rem;
     box-shadow: 0 6px 16px rgba(27, 180, 196, 0.18);
   }
   .hero-secondary {
@@ -1173,13 +1182,23 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 }
 
 @media (max-width: 390px) {
-  .hero-copy h1 { font-size: clamp(2.15rem, 6vw + 0.8rem, 2.45rem); }
+  .hero-copy .eyebrow {
+    font-size: 0.8125rem;
+    letter-spacing: 0.11em;
+  }
+  .hero-copy h1 { line-height: 1; }
+  .hero-copy .lead {
+    font-size: 1.1875rem;
+    line-height: 1.5;
+  }
   .hero-media > img { height: 270px; }
   .wa-dock .hero-card {
-    max-width: calc(100% - 56px);
+    max-width: min(210px, calc(100% - 56px));
+    height: 40px;
+    min-height: 40px;
     padding: 0 10px;
   }
-  .wa-dock .hero-card strong { font-size: 0.7rem; }
+  .wa-dock .hero-card strong { font-size: 0.68rem; }
   .wa-fab { width: 48px; height: 48px; }
 }
 
@@ -1198,8 +1217,15 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .header-bar { column-gap: 4px; }
   .brand img { height: 32px; }
   .menu-toggle { width: 32px; height: 32px; }
-  .hero-copy h1 { font-size: 2.125rem; }
-  .hero-copy .lead { font-size: 1.0625rem; }
+  .hero-copy .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+  }
+  .hero-copy h1 { line-height: 1.02; }
+  .hero-copy .lead {
+    font-size: 1.125rem;
+    line-height: 1.48;
+  }
   .hero-media > img { height: 248px; }
   .wa-dock { gap: 6px; }
   .wa-dock .hero-card {
