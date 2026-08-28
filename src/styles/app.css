@@ -593,26 +593,41 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 .reviews-score span:last-of-type { color: var(--muted); font-weight: 500; }
 
 .reviews-carousel { min-width: 0; }
-.reviews-carousel-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 .reviews-viewport {
-  flex: 1;
+  container-type: inline-size;
   min-width: 0;
   overflow: hidden;
-  touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
 }
 .reviews-track {
   display: flex;
-  gap: 16px;
-  width: 100%;
-  transition: transform 0.65s var(--ease);
+  width: max-content;
   will-change: transform;
+  backface-visibility: hidden;
+  animation: reviews-marquee 42s linear infinite;
+}
+.reviews-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  padding-inline-end: 16px;
 }
 .reviews-slide {
-  flex: 0 0 calc((100% - (var(--per-view) - 1) * 16px) / var(--per-view));
+  flex: 0 0 280px;
+  flex-basis: calc((100cqi - 32px) / 3.2);
   min-width: 0;
 }
 .review-card {
@@ -677,47 +692,44 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   font-weight: 500;
   color: var(--muted);
 }
-.reviews-nav {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--petrol);
-  font-size: 1.35rem;
-  line-height: 1;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
-}
-.reviews-nav:hover:not(:disabled) {
-  border-color: var(--teal);
-  color: var(--teal);
-}
-.reviews-nav:disabled { opacity: 0.35; cursor: default; }
-.reviews-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 22px;
-}
-.reviews-dots button {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-  border: 0;
-  border-radius: 99px;
-  background: #c5d4d8;
-  transition: width 0.2s var(--ease), background 0.2s var(--ease);
-}
-.reviews-dots button.is-active {
-  width: 18px;
-  background: var(--teal);
-}
 .reviews-google-link {
   display: inline-flex;
   margin-top: 28px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .reviews-carousel:hover .reviews-track,
+  .reviews-carousel:focus-within .reviews-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 1099px) {
+  .reviews-slide {
+    flex-basis: calc((100cqi - 24px) / 2.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-slide {
+    flex-basis: calc((100cqi - 16px) / 1.18);
+  }
+  .reviews-viewport {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent 100%
+    );
+  }
 }
 
 /* Location */
@@ -1116,9 +1128,6 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .site-footer { padding-bottom: 24px; }
 }
 
-@media (max-width: 767px) {
-  .reviews-nav { display: none; }
-}
 
 @media (max-width: 414px) {
   .hero-media > img { height: clamp(248px, 30svh, 272px); object-position: 50% 11%; }
@@ -1171,6 +1180,11 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   to { transform: scaleX(1); }
 }
 
+@keyframes reviews-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 @keyframes rise {
   from { opacity: 0; transform: translate3d(0, 12px, 0); }
   to { opacity: 1; transform: none; }
@@ -1182,4 +1196,23 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   *::before,
   *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+  .reviews-viewport {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: visible;
+  }
+  .reviews-track { width: 100%; }
+  .reviews-set { flex-wrap: wrap; width: 100%; padding-inline-end: 0; }
+  .reviews-set[aria-hidden="true"] { display: none; }
+  .reviews-slide {
+    flex: 1 1 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+  .reviews-slide {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
