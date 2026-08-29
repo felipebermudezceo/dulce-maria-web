@@ -41,7 +41,9 @@ export function Diplomado() {
         <CourseBooking modeId={modeId} onChangeMode={() => setModeId("")} />
       </main>
       <Footer />
-      <WhatsAppButton showNotice={false} />
+      <div className="float-bar">
+        <WhatsAppButton />
+      </div>
     </div>
   );
 }

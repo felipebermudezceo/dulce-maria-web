@@ -7,6 +7,7 @@ import { Reviews } from "../components/Reviews";
 import { Location } from "../components/Location";
 import { CTA } from "../components/CTA";
 import { Footer } from "../components/Footer";
+import { BookingNotice } from "../components/BookingNotice";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export function Home() {
@@ -33,7 +34,12 @@ export function Home() {
         <CTA />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <div className="float-bar">
+        <div className="float-bar-left">
+          <BookingNotice />
+        </div>
+        <WhatsAppButton />
+      </div>
     </>
   );
 }
