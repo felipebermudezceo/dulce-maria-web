@@ -852,19 +852,22 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   z-index: 26;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   pointer-events: none;
 }
 .float-bar > * { pointer-events: auto; }
 .float-bar-left {
   min-width: 0;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .wa-fab {
+  --wa-glow: 0 8px 18px rgba(37, 211, 102, 0.22), 0 0 16px 2px rgba(37, 211, 102, 0.16);
   flex-shrink: 0;
+  margin-left: auto;
   width: 56px;
   height: 56px;
   display: grid;
@@ -872,12 +875,12 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   background: var(--whatsapp);
   color: #fff;
   border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.28);
+  box-shadow: var(--wa-glow);
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 .wa-fab:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.34);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28), 0 0 22px 5px rgba(37, 211, 102, 0.26);
 }
 .wa-fab:active { transform: scale(0.96); }
 
@@ -897,6 +900,9 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 .trust-bar.is-visible .trust-metric:nth-child(3) { animation-delay: 0.16s; }
 
 @media (prefers-reduced-motion: no-preference) {
+  .wa-fab { animation: wa-fab-pulse 5s ease-in-out infinite; }
+  .wa-fab:hover,
+  .wa-fab:active { animation: none; }
   .hero-copy .eyebrow { animation: rise 0.65s var(--ease) both; }
   .hero-copy h1 { animation: rise 0.72s var(--ease) 0.08s both; }
   .hero-copy .lead { animation: rise 0.7s var(--ease) 0.14s both; }
@@ -1300,6 +1306,21 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 @keyframes reviews-marquee {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes wa-fab-pulse {
+  0%, 76%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.22), 0 0 16px 2px rgba(37, 211, 102, 0.16);
+  }
+  84% {
+    transform: scale(1.06);
+    box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28), 0 0 22px 5px rgba(37, 211, 102, 0.28);
+  }
+  92% {
+    transform: scale(1);
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.22), 0 0 16px 2px rgba(37, 211, 102, 0.16);
+  }
 }
 
 @keyframes rise {
