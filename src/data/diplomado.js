@@ -79,19 +79,8 @@ export const courseBookingSection = {
   id: "reserva",
   eyebrow: "Reserva",
   title: "Agenda tu cupo",
-  lead: "Selecciona una modalidad, elige un día y un horario disponible, y déjanos tus datos para confirmar.",
-  timesTitle: "Horarios disponibles",
-  formTitle: "Tus datos",
-  summaryTitle: "Resumen",
-  confirmCta: "Confirmar reserva",
-  backCta: "Volver al calendario",
+  lead: "Elige una modalidad y reserva un espacio en el calendario real de Calendly. Ahí verás fechas y horarios disponibles.",
   changeMode: "Cambiar modalidad",
-};
-
-export const courseConfirmation = {
-  title: "¡Reserva recibida!",
-  body: "Te enviaremos la información de tu formación al contacto registrado.",
-  homeCta: "Volver al inicio",
 };
 
 export function getCourseMode(id) {

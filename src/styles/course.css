@@ -5,6 +5,7 @@
 
 .course-page {
   background: var(--white);
+  overflow-x: clip;
 }
 
 .course-hero {
@@ -251,6 +252,26 @@
   gap: 18px;
 }
 
+.calendly-panel {
+  padding: 8px 8px 4px;
+  overflow: hidden;
+}
+
+.calendly-embed,
+.calendly-embed iframe {
+  width: 100%;
+  min-width: 0;
+}
+
+.calendly-embed {
+  min-height: 720px;
+  height: 720px;
+}
+
+.calendly-inline-widget {
+  min-width: 0 !important;
+}
+
 .booking-summary,
 .booking-panel,
 .booking-confirmation {
@@ -301,158 +322,18 @@
 .booking-hint {
   margin: 0;
   color: var(--muted);
-}
-
-.booking-calendar-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.booking-calendar-nav h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.booking-calendar-nav button {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--petrol);
-  font-size: 1.3rem;
-}
-
-.booking-weekdays,
-.booking-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 6px;
-}
-
-.booking-weekdays span {
   text-align: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--muted);
-}
-
-.booking-day {
-  min-height: 42px;
-  border: 0;
-  border-radius: 12px;
-  background: var(--ice);
-  color: var(--petrol);
-  font-weight: 700;
-}
-
-.booking-day.is-empty {
-  background: transparent;
-}
-
-.booking-day:disabled {
-  color: #b5c2c6;
-  background: transparent;
-}
-
-.booking-day.is-available {
-  background: var(--mint);
-}
-
-.booking-day.is-selected,
-.booking-time.is-selected {
-  background: var(--teal);
-  color: var(--white);
-}
-
-.booking-times {
-  margin-top: 22px;
-}
-
-.booking-times h4 {
-  margin: 0 0 12px;
-  color: var(--petrol);
-}
-
-.booking-time-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.booking-time {
-  min-height: 42px;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--petrol);
-  font-weight: 700;
-}
-
-.booking-form-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.booking-form label {
-  display: grid;
-  gap: 6px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--petrol);
-}
-
-.booking-form input {
-  min-height: 48px;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  font: inherit;
-  color: var(--ink);
-  background: var(--white);
-}
-
-.booking-form input:focus {
-  outline: 2px solid rgba(27, 180, 196, 0.35);
-  border-color: var(--teal);
-}
-
-.booking-form-actions {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.booking-form-actions .btn {
-  width: 100%;
-}
-
-.booking-error {
-  margin: 12px 0 0;
-  color: #9b2c2c;
-  font-weight: 600;
-}
-
-.booking-confirmation {
-  text-align: center;
-}
-
-.booking-confirmation-name {
-  margin: 0 0 18px;
-  font-weight: 700;
-  color: var(--petrol);
-}
-
-.booking-confirmation .btn {
-  width: min(100%, 280px);
 }
 
 .course-page .wa-dock {
   left: auto;
+}
+
+@media (max-width: 700px) {
+  .calendly-embed {
+    min-height: 1080px;
+    height: 1080px;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -463,13 +344,6 @@
 
   .course-mode-card:hover {
     box-shadow: 0 16px 32px rgba(15, 58, 72, 0.1);
-  }
-
-  .booking-day.is-available:hover,
-  .booking-time:hover,
-  .booking-calendar-nav button:hover {
-    border-color: var(--teal);
-    color: var(--petrol);
   }
 }
 
@@ -539,17 +413,14 @@
   }
 
   .booking-layout {
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
     gap: 22px;
     align-items: start;
   }
 
-  .booking-form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .booking-form-actions {
-    grid-template-columns: 1fr 1.2fr;
+  .calendly-embed {
+    min-height: 700px;
+    height: 700px;
   }
 }
 
