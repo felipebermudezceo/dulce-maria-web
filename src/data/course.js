@@ -1,24 +1,18 @@
 /**
  * CONFIGURACIÓN DE CALENDLY — DIPLOMADO
  * -------------------------------------
- * Fuente real de disponibilidad y reservas.
+ * Reunión informativa para explicar el diplomado:
+ * de qué trata, duración, modalidades, costo y resolución de dudas.
  *
- * El perfil solo publica un tipo de evento:
- *   DESCRIPCION DIPLOMADO
- *   https://calendly.com/diplomadodradulcemaria/descripcion-diplomado
+ * https://calendly.com/diplomadodradulcemaria
  *
- * No existen URLs separadas para Online y Práctico + Online.
- * Ambas modalidades abren el mismo evento y se distingue
- * con utm_content para saber cuál eligió el visitante.
- *
- * Si más adelante crean un evento por modalidad, cambia
- * solo `events.online` y `events.practico-online`.
+ * No existen URLs separadas por modalidad.
+ * Se distingue cuál eligió el visitante con utm_content.
  */
 
 export const calendlyProfileUrl = "https://calendly.com/diplomadodradulcemaria";
 
-export const calendlyEventUrl =
-  "https://calendly.com/diplomadodradulcemaria/descripcion-diplomado";
+export const calendlyEventUrl = calendlyProfileUrl;
 
 export const calendlyEvents = {
   online: calendlyEventUrl,

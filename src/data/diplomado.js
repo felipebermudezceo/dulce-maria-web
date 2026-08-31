@@ -3,8 +3,9 @@
  * ----------------------------------
  * Textos y estructura de la subpágina /diplomado.
  *
- * duration, hours, price y certification se dejan vacíos
+ * duration, hours y certification se dejan vacíos
  * hasta tener datos reales. No inventar acreditaciones.
+ * Los precios de cada modalidad están en courseModes.
  */
 
 export const diplomado = {
@@ -36,6 +37,8 @@ export const courseModes = [
     id: "online",
     title: "Online",
     recommended: false,
+    priceAmount: "199",
+    currency: "USD",
     description:
       "Aprende desde donde estés con una modalidad flexible y enfocada en tu formación.",
     benefits: [
@@ -50,6 +53,9 @@ export const courseModes = [
     title: "Práctico + Online",
     recommended: true,
     badge: "Recomendado",
+    priceAmount: "599",
+    compareAmount: "799",
+    currency: "USD",
     description:
       "Combina la formación online con una experiencia práctica para llevar tus conocimientos a otro nivel.",
     benefits: [
@@ -77,9 +83,9 @@ export const courseBenefitsSection = {
 
 export const courseBookingSection = {
   id: "reserva",
-  eyebrow: "Reserva",
-  title: "Agenda tu cupo",
-  lead: "Elige una modalidad y reserva un espacio en el calendario real de Calendly. Ahí verás fechas y horarios disponibles.",
+  eyebrow: "Reunión informativa",
+  title: "Agenda una llamada",
+  lead: "Esta reunión es para explicarte de qué trata el diplomado, su duración, las modalidades, el costo y resolver tus dudas. Elige la modalidad que te interesa y reserva un horario.",
   changeMode: "Cambiar modalidad",
 };
 

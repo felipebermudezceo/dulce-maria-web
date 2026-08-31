@@ -1,6 +1,7 @@
 import { courseBookingSection, diplomado, getCourseMode } from "../../data/diplomado";
 import { Reveal } from "../Reveal";
 import { CalendlyBooking } from "./CalendlyBooking";
+import { CoursePrice } from "./CoursePrice";
 
 export function CourseBooking({ modeId, onChangeMode }) {
   const mode = getCourseMode(modeId);
@@ -15,7 +16,9 @@ export function CourseBooking({ modeId, onChangeMode }) {
         </header>
 
         {!mode ? (
-          <p className="booking-hint">Elige primero una modalidad para ver los horarios disponibles.</p>
+          <p className="booking-hint">
+            Elige primero una modalidad. Luego podrás agendar la reunión para conocer el diplomado, el costo y resolver dudas.
+          </p>
         ) : (
           <div className="booking-layout">
             <div className="booking-summary">
@@ -26,6 +29,14 @@ export function CourseBooking({ modeId, onChangeMode }) {
                   <dt>Modalidad</dt>
                   <dd>{mode.title}</dd>
                 </div>
+                {mode.priceAmount ? (
+                  <div>
+                    <dt>Costo</dt>
+                    <dd>
+                      <CoursePrice mode={mode} />
+                    </dd>
+                  </div>
+                ) : null}
               </dl>
               <button type="button" className="text-link" onClick={onChangeMode}>
                 {courseBookingSection.changeMode}
