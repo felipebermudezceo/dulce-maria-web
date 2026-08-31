@@ -3,10 +3,23 @@ import { site, navigation, headerCta } from "../data/content";
 import { courses } from "../data/courses";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
+import { Link, useRouter } from "../lib/router";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 function CoursesLink({ className, onNavigate }) {
+  const { path } = useRouter();
   if (!courses.visible) return null;
+
+  const active = path.startsWith("/diplomado");
+  const classes = `${className}${active ? " is-active" : ""}`;
+
+  if (courses.url?.startsWith("/")) {
+    return (
+      <Link className={classes} to={courses.url} onClick={onNavigate}>
+        {courses.label}
+      </Link>
+    );
+  }
 
   const handleClick = (event) => {
     if (!courses.url) event.preventDefault();
@@ -15,7 +28,7 @@ function CoursesLink({ className, onNavigate }) {
 
   return (
     <a
-      className={className}
+      className={classes}
       href={courses.url || "#"}
       onClick={handleClick}
       title={courses.url ? undefined : "Configura el enlace en src/data/courses.js"}
@@ -29,6 +42,8 @@ function CoursesLink({ className, onNavigate }) {
 }
 
 export function Header() {
+  const { path } = useRouter();
+  const onHome = path === "/";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("#inicio");
@@ -41,13 +56,15 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    if (!onHome) return undefined;
+
     const sections = navigation
       .map((item) => document.getElementById(item.href.slice(1)))
       .filter(Boolean);
 
     if (!sections.length) return undefined;
 
-    const observer = new IntersectionObserver(
+    const live = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
@@ -57,9 +74,9 @@ export function Header() {
       { rootMargin: "-32% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
     );
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
+    sections.forEach((section) => live.observe(section));
+    return () => live.disconnect();
+  }, [onHome]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -68,19 +85,28 @@ export function Header() {
     };
   }, [open]);
 
+  const sectionHref = (href) => (onHome ? href : `/${href}`);
+
   return (
     <header className={`site-header${scrolled || open ? " is-solid" : ""}`}>
       <div className="header-bar">
-        <a href="#inicio" className="brand" onClick={() => setOpen(false)}>
-          <img src={site.logo} alt={site.clinicName} />
-        </a>
+        {onHome ? (
+          <a href="#inicio" className="brand" onClick={() => setOpen(false)}>
+            <img src={site.logo} alt={site.clinicName} />
+          </a>
+        ) : (
+          <Link to="/" className="brand" onClick={() => setOpen(false)}>
+            <img src={site.logo} alt={site.clinicName} />
+          </Link>
+        )}
 
         <nav className="nav-desktop" aria-label="Principal">
           {navigation.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              className={active === item.href ? "is-active" : undefined}
+              href={sectionHref(item.href)}
+              className={onHome && active === item.href ? "is-active" : undefined}
+              onClick={() => setOpen(false)}
             >
               {item.label}
             </a>
@@ -116,8 +142,8 @@ export function Header() {
           {navigation.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              className={active === item.href ? "is-active" : undefined}
+              href={sectionHref(item.href)}
+              className={onHome && active === item.href ? "is-active" : undefined}
               onClick={() => setOpen(false)}
             >
               {item.label}
