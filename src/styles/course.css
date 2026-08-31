@@ -119,6 +119,7 @@
 
 .course-modes {
   background: var(--ice);
+  scroll-margin-top: calc(var(--header) + 12px);
 }
 
 .course-mode-grid {
@@ -318,6 +319,7 @@
 
 .course-booking {
   background: var(--ice);
+  scroll-margin-top: calc(var(--header) + 12px);
 }
 
 .booking-layout {

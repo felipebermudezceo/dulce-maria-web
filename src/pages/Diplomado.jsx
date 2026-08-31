@@ -28,6 +28,13 @@ export function Diplomado() {
     });
   };
 
+  const changeMode = () => {
+    setModeId("");
+    window.requestAnimationFrame(() => {
+      document.getElementById("modalidades")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
   return (
     <div className="course-page">
       <a className="skip" href="#formacion">
@@ -38,7 +45,7 @@ export function Diplomado() {
         <CourseHero />
         <CourseModes selectedId={modeId} onSelect={selectMode} />
         <CourseBenefits />
-        <CourseBooking modeId={modeId} onChangeMode={() => setModeId("")} />
+        <CourseBooking modeId={modeId} onChangeMode={changeMode} />
       </main>
       <Footer />
       <WhatsAppButton />
