@@ -4,7 +4,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Icon } from "./Icon";
 import { HeroNotice } from "./HeroNotice";
 
-const trustIcons = ["shield", "monitor", "check"];
+const trustIcons = ["shield", "monitor", "check", "heart"];
 
 export function Hero() {
   return (

@@ -46,6 +46,7 @@ export const trustItems = [
   "Especialistas certificados",
   "Tecnología de última generación",
   "Resultados confiables",
+  "Atención humana y cercana",
 ];
 
 export const servicesSection = {
