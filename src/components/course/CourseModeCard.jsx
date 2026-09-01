@@ -1,8 +1,9 @@
 import { getCalendlyUrl } from "../../data/course";
+import { courseModesSection } from "../../data/diplomado";
 import { Icon } from "../Icon";
 import { CoursePrice } from "./CoursePrice";
 
-export function CourseModeCard({ mode, cta }) {
+export function CourseModeCard({ mode }) {
   return (
     <article
       className={`course-mode-card${mode.recommended ? " is-featured" : ""}`}
@@ -20,15 +21,25 @@ export function CourseModeCard({ mode, cta }) {
           </li>
         ))}
       </ul>
-      <a
-        className="btn btn-fill"
-        href={getCalendlyUrl(mode.id)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icon name="calendar" size={18} />
-        {cta}
-      </a>
+      <div className="course-mode-actions">
+        <a
+          className="btn btn-fill"
+          href={mode.checkoutUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {courseModesSection.enrollLabel}
+        </a>
+        <a
+          className="course-mode-meeting"
+          href={getCalendlyUrl(mode.id)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {courseModesSection.meetingLabel}
+        </a>
+        <p className="course-mode-charge-note">{courseModesSection.chargeNote}</p>
+      </div>
     </article>
   );
 }

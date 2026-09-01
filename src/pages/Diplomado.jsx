@@ -7,6 +7,7 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { CourseBenefits } from "../components/course/CourseBenefits";
 import { CourseHero } from "../components/course/CourseHero";
 import { CourseModes } from "../components/course/CourseModes";
+import { PricingProvider } from "../lib/pricing";
 import "../styles/course.css";
 
 export function Diplomado() {
@@ -19,18 +20,20 @@ export function Diplomado() {
   }, []);
 
   return (
-    <div className="course-page">
-      <a className="skip" href="#formacion">
-        Ir al contenido
-      </a>
-      <Header />
-      <main>
-        <CourseHero />
-        <CourseModes />
-        <CourseBenefits />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <PricingProvider>
+      <div className="course-page">
+        <a className="skip" href="#formacion">
+          Ir al contenido
+        </a>
+        <Header />
+        <main>
+          <CourseHero />
+          <CourseModes />
+          <CourseBenefits />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </PricingProvider>
   );
 }

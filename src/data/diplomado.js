@@ -29,7 +29,9 @@ export const courseModesSection = {
   eyebrow: "Modalidades",
   title: "¿Cómo quieres formarte?",
   lead: "Elige la modalidad que mejor se adapte a tus objetivos y disponibilidad.",
-  chooseLabel: "Agendar en Calendly",
+  enrollLabel: "Inscribirme ahora",
+  meetingLabel: "Prefiero agendar una reunión primero",
+  chargeNote: "El pago se procesa en dólares (USD) de forma segura con Bold.",
 };
 
 export const courseModes = [
@@ -39,6 +41,7 @@ export const courseModes = [
     recommended: false,
     priceAmount: "199",
     currency: "USD",
+    checkoutUrl: "https://checkout.bold.co/payment/LNK_KFR1XLHMUR",
     description:
       "Aprende desde donde estés con una modalidad flexible y enfocada en tu formación.",
     benefits: [
@@ -56,6 +59,7 @@ export const courseModes = [
     priceAmount: "599",
     compareAmount: "799",
     currency: "USD",
+    checkoutUrl: "https://checkout.bold.co/payment/LNK_RNEQ14784E",
     description:
       "Combina la formación online con una experiencia práctica para llevar tus conocimientos a otro nivel.",
     benefits: [

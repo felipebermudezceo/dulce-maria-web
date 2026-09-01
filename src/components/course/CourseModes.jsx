@@ -13,11 +13,7 @@ export function CourseModes() {
         </header>
         <div className="course-mode-grid">
           {courseModes.map((mode) => (
-            <CourseModeCard
-              key={mode.id}
-              mode={mode}
-              cta={courseModesSection.chooseLabel}
-            />
+            <CourseModeCard key={mode.id} mode={mode} />
           ))}
         </div>
       </div>

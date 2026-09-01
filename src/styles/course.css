@@ -230,9 +230,35 @@
   color: var(--teal);
 }
 
+.course-mode-actions {
+  margin-top: auto;
+  display: grid;
+  gap: 10px;
+}
+
 .course-mode-card .btn {
   width: 100%;
-  margin-top: auto;
+}
+
+.course-mode-meeting {
+  justify-self: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.course-mode-meeting:hover {
+  color: var(--petrol);
+}
+
+.course-mode-card .course-mode-charge-note {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--muted);
 }
 
 .course-mode-card.is-featured {
