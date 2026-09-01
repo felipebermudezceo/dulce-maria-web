@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import {
   DEFAULT_CURRENCY,
+  RATES,
   convertFromUsd,
   currencyForCountry,
   formatAmount,
@@ -8,8 +9,23 @@ import {
 
 const PricingContext = createContext(null);
 
+function buildValue(country, rates) {
+  const currency = currencyForCountry(country);
+  return {
+    country,
+    currency,
+    rates,
+    isConverted: currency !== DEFAULT_CURRENCY,
+    price(usdAmount) {
+      const amount = convertFromUsd(usdAmount, currency, rates);
+      return { currency, amount, display: formatAmount(amount, currency) };
+    },
+  };
+}
+
 export function PricingProvider({ children }) {
   const [country, setCountry] = useState("");
+  const [rates, setRates] = useState(RATES);
 
   useEffect(() => {
     let cancelled = false;
@@ -19,8 +35,17 @@ export function PricingProvider({ children }) {
       .then((data) => {
         if (!cancelled && data && data.country) setCountry(data.country);
       })
+      .catch(() => {});
+
+    fetch("/api/rates")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data && data.rates) {
+          setRates({ ...RATES, ...data.rates });
+        }
+      })
       .catch(() => {
-        /* sin geo -> se queda con la moneda por defecto (USD) */
+        /* sin tasa en vivo -> se usa el respaldo de src/data/pricing.js */
       });
 
     return () => {
@@ -28,36 +53,11 @@ export function PricingProvider({ children }) {
     };
   }, []);
 
-  const value = useMemo(() => {
-    const currency = currencyForCountry(country);
-    return {
-      country,
-      currency,
-      isConverted: currency !== DEFAULT_CURRENCY,
-      price(usdAmount) {
-        const amount = convertFromUsd(usdAmount, currency);
-        return { currency, amount, display: formatAmount(amount, currency) };
-      },
-    };
-  }, [country]);
+  const value = useMemo(() => buildValue(country, rates), [country, rates]);
 
   return <PricingContext.Provider value={value}>{children}</PricingContext.Provider>;
 }
 
 export function usePricing() {
-  return (
-    useContext(PricingContext) || {
-      country: "",
-      currency: DEFAULT_CURRENCY,
-      isConverted: false,
-      price(usdAmount) {
-        const amount = convertFromUsd(usdAmount, DEFAULT_CURRENCY);
-        return {
-          currency: DEFAULT_CURRENCY,
-          amount,
-          display: formatAmount(amount, DEFAULT_CURRENCY),
-        };
-      },
-    }
-  );
+  return useContext(PricingContext) || buildValue("", RATES);
 }

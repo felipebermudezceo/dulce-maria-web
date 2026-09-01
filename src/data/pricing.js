@@ -7,14 +7,16 @@
  * El valor en moneda local que ve el visitante es SOLO UNA REFERENCIA
  * aproximada; el cobro real siempre es en dólares.
  *
- * Actualiza las tasas cada cierto tiempo.
- * Última revisión: 2026-09-01
+ * La tasa se actualiza SOLA desde open.er-api.com (ver /api/rates).
+ * Los valores de abajo son solo el respaldo por si esa fuente falla:
+ * conviene revisarlos de vez en cuando.
+ * Última revisión del respaldo: 2026-09-01
  */
 
 export const BASE_CURRENCY = "USD";
 export const DEFAULT_CURRENCY = "USD";
 
-// Cuánto vale 1 USD en cada moneda.
+// Respaldo: cuánto vale 1 USD en cada moneda si /api/rates no responde.
 export const RATES = {
   USD: 1,
   COP: 4050,
@@ -47,8 +49,8 @@ export function currencyForCountry(country) {
   return CURRENCY_BY_COUNTRY[code] || DEFAULT_CURRENCY;
 }
 
-export function convertFromUsd(usdAmount, currency) {
-  const rate = RATES[currency] ?? 1;
+export function convertFromUsd(usdAmount, currency, rates = RATES) {
+  const rate = rates[currency] ?? RATES[currency] ?? 1;
   const step = ROUND_TO[currency] ?? 1;
   return Math.round((Number(usdAmount) * rate) / step) * step;
 }
