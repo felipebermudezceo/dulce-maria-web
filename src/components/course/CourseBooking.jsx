@@ -1,5 +1,6 @@
 import { courseBookingSection, diplomado, getCourseMode } from "../../data/diplomado";
 import { getCalendlyUrl } from "../../data/course";
+import { Icon } from "../Icon";
 import { Reveal } from "../Reveal";
 import { CoursePrice } from "./CoursePrice";
 
@@ -43,15 +44,14 @@ export function CourseBooking({ modeId, onChangeMode }) {
               </button>
             </div>
 
-            <div className="booking-panel booking-cta-panel">
-              <h3>{courseBookingSection.panelTitle}</h3>
-              <p>{courseBookingSection.panelText}</p>
+            <div className="booking-cta">
               <a
-                className="btn btn-fill"
+                className="btn btn-calendly"
                 href={getCalendlyUrl(modeId)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Icon name="calendar" size={20} />
                 {courseBookingSection.cta}
               </a>
             </div>
