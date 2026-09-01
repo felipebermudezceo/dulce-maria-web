@@ -327,24 +327,20 @@
   gap: 18px;
 }
 
-.calendly-panel {
-  padding: 8px 8px 4px;
-  overflow: hidden;
+.booking-cta-panel {
+  display: grid;
+  gap: 14px;
+  align-content: start;
 }
 
-.calendly-embed,
-.calendly-embed iframe {
-  width: 100%;
-  min-width: 0;
+.booking-cta-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-.calendly-embed {
-  min-height: 720px;
-  height: 720px;
-}
-
-.calendly-inline-widget {
-  min-width: 0 !important;
+.booking-cta-panel .btn {
+  justify-self: start;
 }
 
 .booking-summary,
@@ -398,13 +394,6 @@
   margin: 0;
   color: var(--muted);
   text-align: center;
-}
-
-@media (max-width: 700px) {
-  .calendly-embed {
-    min-height: 1080px;
-    height: 1080px;
-  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -667,11 +656,6 @@
     grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
     gap: 22px;
     align-items: start;
-  }
-
-  .calendly-embed {
-    min-height: 700px;
-    height: 700px;
   }
 }
 

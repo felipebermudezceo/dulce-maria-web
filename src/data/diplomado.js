@@ -87,6 +87,10 @@ export const courseBookingSection = {
   title: "Agenda una llamada",
   lead: "Esta reunión es para explicarte de qué trata el diplomado, su duración, las modalidades, el costo y resolver tus dudas. Elige la modalidad que te interesa y reserva un horario.",
   changeMode: "Cambiar modalidad",
+  panelTitle: "Reserva tu horario",
+  panelText:
+    "Te llevaremos a Calendly para que elijas el día y la hora que mejor te queden. La reunión es virtual y sin costo.",
+  cta: "Abrir Calendly",
 };
 
 export function getCourseMode(id) {
