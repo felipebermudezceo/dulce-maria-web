@@ -29,7 +29,7 @@ export const courseModesSection = {
   eyebrow: "Modalidades",
   title: "¿Cómo quieres formarte?",
   lead: "Elige la modalidad que mejor se adapte a tus objetivos y disponibilidad.",
-  chooseLabel: "Elegir modalidad",
+  chooseLabel: "Agendar en Calendly",
 };
 
 export const courseModes = [
@@ -81,15 +81,3 @@ export const courseBenefitsSection = {
   ],
 };
 
-export const courseBookingSection = {
-  id: "reserva",
-  eyebrow: "Reunión informativa",
-  title: "Agenda una llamada",
-  lead: "Esta reunión es para explicarte de qué trata el diplomado, su duración, las modalidades, el costo y resolver tus dudas. Elige la modalidad que te interesa y reserva un horario.",
-  changeMode: "Cambiar modalidad",
-  cta: "Reservar mi horario en Calendly",
-};
-
-export function getCourseMode(id) {
-  return courseModes.find((mode) => mode.id === id) ?? null;
-}

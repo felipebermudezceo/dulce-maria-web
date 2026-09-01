@@ -2,7 +2,7 @@ import { courseModes, courseModesSection } from "../../data/diplomado";
 import { Reveal } from "../Reveal";
 import { CourseModeCard } from "./CourseModeCard";
 
-export function CourseModes({ selectedId, onSelect }) {
+export function CourseModes() {
   return (
     <Reveal as="section" className="section course-modes" id={courseModesSection.id}>
       <div className="wrap">
@@ -16,8 +16,6 @@ export function CourseModes({ selectedId, onSelect }) {
             <CourseModeCard
               key={mode.id}
               mode={mode}
-              selected={selectedId === mode.id}
-              onSelect={onSelect}
               cta={courseModesSection.chooseLabel}
             />
           ))}

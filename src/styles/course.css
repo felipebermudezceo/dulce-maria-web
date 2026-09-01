@@ -250,10 +250,6 @@
   color: var(--teal-deep);
 }
 
-.course-mode-card.is-selected {
-  border-color: var(--teal);
-}
-
 .course-mode-badge {
   position: absolute;
   top: 16px;
@@ -315,117 +311,6 @@
   font-size: 1.05rem;
   letter-spacing: -0.03em;
   color: var(--petrol);
-}
-
-.course-booking {
-  background: var(--ice);
-  scroll-margin-top: calc(var(--header) + 12px);
-}
-
-.booking-layout {
-  display: grid;
-  gap: 18px;
-}
-
-.booking-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 12px;
-  min-height: 180px;
-}
-
-.btn-calendly {
-  min-height: 62px;
-  padding: 0 36px;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  color: #fff;
-  background: linear-gradient(135deg, var(--teal), var(--petrol));
-  border-color: transparent;
-  box-shadow: 0 14px 30px rgba(27, 180, 196, 0.38);
-}
-
-.btn-calendly:hover {
-  color: #fff;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 18px 38px rgba(27, 180, 196, 0.5);
-}
-
-.btn-calendly::after {
-  content: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .btn-calendly {
-    animation: calendly-pulse 2.6s var(--ease) infinite;
-  }
-  .btn-calendly:hover {
-    animation: none;
-  }
-}
-
-@keyframes calendly-pulse {
-  0%,
-  100% {
-    box-shadow: 0 14px 30px rgba(27, 180, 196, 0.38);
-  }
-  50% {
-    box-shadow: 0 16px 40px rgba(27, 180, 196, 0.62);
-  }
-}
-
-.booking-summary,
-.booking-panel,
-.booking-confirmation {
-  padding: 24px 20px;
-  background: var(--white);
-  border-radius: 22px;
-  border: 1px solid var(--line);
-  box-shadow: 0 8px 24px rgba(15, 58, 72, 0.04);
-}
-
-.booking-summary h3,
-.booking-panel h3,
-.booking-confirmation h3 {
-  margin: 0 0 16px;
-  color: var(--petrol);
-  letter-spacing: -0.03em;
-}
-
-.booking-summary dl,
-.booking-confirmation dl {
-  display: grid;
-  gap: 12px;
-  margin: 0 0 18px;
-}
-
-.booking-summary div,
-.booking-confirmation div {
-  display: grid;
-  gap: 2px;
-}
-
-.booking-summary dt,
-.booking-confirmation dt {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.booking-summary dd,
-.booking-confirmation dd {
-  margin: 0;
-  color: var(--petrol);
-  font-weight: 600;
-}
-
-.booking-hint {
-  margin: 0;
-  color: var(--muted);
-  text-align: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -682,12 +567,6 @@
   .course-benefit-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-  }
-
-  .booking-layout {
-    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-    gap: 22px;
-    align-items: start;
   }
 }
 

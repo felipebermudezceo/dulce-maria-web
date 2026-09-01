@@ -1,10 +1,11 @@
+import { getCalendlyUrl } from "../../data/course";
 import { Icon } from "../Icon";
 import { CoursePrice } from "./CoursePrice";
 
-export function CourseModeCard({ mode, selected, onSelect, cta }) {
+export function CourseModeCard({ mode, cta }) {
   return (
     <article
-      className={`course-mode-card${mode.recommended ? " is-featured" : ""}${selected ? " is-selected" : ""}`}
+      className={`course-mode-card${mode.recommended ? " is-featured" : ""}`}
     >
       {mode.badge ? <span className="course-mode-badge">{mode.badge}</span> : null}
       <p className="course-mode-kicker">{mode.recommended ? "Modalidad completa" : "Modalidad flexible"}</p>
@@ -19,9 +20,15 @@ export function CourseModeCard({ mode, selected, onSelect, cta }) {
           </li>
         ))}
       </ul>
-      <button type="button" className="btn btn-fill" onClick={() => onSelect(mode.id)}>
+      <a
+        className="btn btn-fill"
+        href={getCalendlyUrl(mode.id)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="calendar" size={18} />
         {cta}
-      </button>
+      </a>
     </article>
   );
 }
