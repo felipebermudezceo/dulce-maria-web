@@ -300,6 +300,120 @@
   box-shadow: 0 8px 18px rgba(27, 180, 196, 0.38);
 }
 
+.course-syllabus {
+  background: var(--white);
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.syllabus-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.syllabus-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.syllabus-item[open] {
+  border-color: var(--teal);
+  box-shadow: 0 10px 28px rgba(15, 58, 72, 0.07);
+}
+
+.syllabus-item summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--petrol);
+}
+
+.syllabus-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.syllabus-item summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 14px;
+}
+
+.syllabus-num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--ice);
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.syllabus-item[open] .syllabus-num {
+  background: var(--teal);
+  color: #fff;
+}
+
+.syllabus-title {
+  flex: 1;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.syllabus-chevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.syllabus-item[open] .syllabus-chevron {
+  transform: rotate(180deg);
+  color: var(--teal);
+}
+
+.syllabus-item ul {
+  margin: 0;
+  padding: 0 20px 18px 66px;
+  display: grid;
+  gap: 9px;
+  list-style: none;
+}
+
+.syllabus-item li {
+  position: relative;
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+.syllabus-item li::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 0.52em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+@media (min-width: 700px) {
+  .syllabus-item ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 28px;
+  }
+}
+
 .course-benefits {
   background: var(--white);
 }

@@ -7,6 +7,7 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { CourseBenefits } from "../components/course/CourseBenefits";
 import { CourseHero } from "../components/course/CourseHero";
 import { CourseModes } from "../components/course/CourseModes";
+import { CourseSyllabus } from "../components/course/CourseSyllabus";
 import { PricingProvider } from "../lib/pricing";
 import "../styles/course.css";
 
@@ -29,6 +30,7 @@ export function Diplomado() {
         <main>
           <CourseHero />
           <CourseModes />
+          <CourseSyllabus />
           <CourseBenefits />
         </main>
         <Footer />
