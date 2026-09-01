@@ -301,7 +301,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 }
 .hero-title-accent { color: var(--teal); }
 .hero-copy .lead { margin-bottom: 28px; text-wrap: pretty; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px; }
 .hero-actions .hero-secondary { flex: 1 1 auto; min-width: 240px; }
 .trust-pills {
   display: flex;
