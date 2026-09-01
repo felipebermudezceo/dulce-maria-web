@@ -61,12 +61,12 @@ export const courseModes = [
     currency: "USD",
     checkoutUrl: "https://checkout.bold.co/payment/LNK_RNEQ14784E",
     description:
-      "Combina la formación online con una experiencia práctica para llevar tus conocimientos a otro nivel.",
+      "Combina la formación online con prácticas de 2 meses con pacientes reales para llevar tus conocimientos a otro nivel.",
     benefits: [
       "Formación online",
-      "Sesiones prácticas",
+      "Prácticas de 2 meses, de lunes a sábado",
+      "Práctica con pacientes reales",
       "Acompañamiento profesional",
-      "Mayor experiencia aplicada",
       "Integración entre teoría y práctica",
     ],
   },
