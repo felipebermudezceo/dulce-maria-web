@@ -689,13 +689,14 @@
 
   .course-hero-actions {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
   }
 
   .course-hero-actions .btn {
     width: auto;
-    min-width: 200px;
+    min-width: 190px;
   }
 
   .course-mode-grid {

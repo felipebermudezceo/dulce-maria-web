@@ -26,6 +26,9 @@ export function CourseHero() {
             <a className="btn btn-ghost" href="#modalidades">
               {diplomado.secondaryCta}
             </a>
+            <a className="btn btn-ghost" href="#temario">
+              {diplomado.syllabusCta}
+            </a>
           </div>
         </div>
       </div>

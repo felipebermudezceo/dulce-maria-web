@@ -16,6 +16,7 @@ export const diplomado = {
   lead: "Una formación pensada para quienes buscan desarrollar sus conocimientos en ecografía diagnóstica con acompañamiento profesional.",
   primaryCta: "Quiero formarme",
   secondaryCta: "Ver modalidades",
+  syllabusCta: "Ver temario",
   photo: "/images/doctora.jpg",
   photoAlt: "Formación en ecografía diagnóstica con la Dra. Dulce María",
   duration: "",
