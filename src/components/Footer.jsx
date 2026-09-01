@@ -1,4 +1,4 @@
-import { site, navigation, locationSection } from "../data/content";
+import { site, navigation, locationSection, hero } from "../data/content";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
 import { useRouter } from "../lib/router";
@@ -31,6 +31,13 @@ export function Footer() {
         <div className="footer-links">
           <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
             {contact.whatsapp.display}
+          </a>
+          <a
+            href={contact.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {hero.instagramCta}
           </a>
           <a
             href={contact.address.mapsUrl}

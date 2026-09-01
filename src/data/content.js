@@ -33,6 +33,7 @@ export const hero = {
   lead: "Acompañamos tu bienestar en cada etapa con diagnósticos precisos y atención humana.",
   primaryCta: "Agenda tu ecografía",
   secondaryCta: "Conoce nuestras ecografías",
+  instagramCta: "Ver en Instagram",
   photo: "/images/doctora.jpg",
   photoAlt: "Dra. Dulce María",
 };
@@ -93,6 +94,7 @@ export const ctaBand = {
   bookTitle: "Agenda tu ecografía hoy",
   bookText: "Estamos aquí para ayudarte",
   bookButton: "Agenda tu cita",
+  instagramCta: "Ver en Instagram",
 };
 
 export const mobileBar = {

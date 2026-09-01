@@ -1,6 +1,8 @@
 import { hero, trustItems } from "../data/content";
+import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { InstagramIcon } from "./InstagramIcon";
 import { Icon } from "./Icon";
 import { HeroNotice } from "./HeroNotice";
 
@@ -27,6 +29,15 @@ export function Hero() {
             >
               <WhatsAppIcon />
               {hero.primaryCta}
+            </a>
+            <a
+              className="btn btn-ghost btn-instagram"
+              href={contact.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+              {hero.instagramCta}
             </a>
             <a className="btn btn-ghost hero-secondary" href="#servicios">
               {hero.secondaryCta}

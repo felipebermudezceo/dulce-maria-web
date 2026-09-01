@@ -1,6 +1,9 @@
 import { doctor } from "../data/doctor";
+import { contact } from "../data/contact";
+import { hero } from "../data/content";
 import { whatsappUrl } from "../lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { InstagramIcon } from "./InstagramIcon";
 import { Reveal } from "./Reveal";
 
 export function AboutDoctor() {
@@ -19,15 +22,26 @@ export function AboutDoctor() {
           <p className="about-lead">{first}</p>
           <p>{second}</p>
           <blockquote>{doctor.quote}</blockquote>
-          <a
-            className="btn btn-fill"
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon />
-            {doctor.cta}
-          </a>
+          <div className="about-actions">
+            <a
+              className="btn btn-fill"
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon />
+              {doctor.cta}
+            </a>
+            <a
+              className="btn btn-ghost btn-instagram"
+              href={contact.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+              {hero.instagramCta}
+            </a>
+          </div>
         </div>
       </div>
     </Reveal>

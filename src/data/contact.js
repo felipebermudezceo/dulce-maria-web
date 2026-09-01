@@ -2,7 +2,7 @@
  * CONTACTO, WHATSAPP Y UBICACIÓN
  * --------------------------------
  * Cambia aquí el teléfono, los mensajes de WhatsApp,
- * la dirección y los enlaces de Google Maps.
+ * Instagram, la dirección y los enlaces de Google Maps.
  *
  * Teléfono: usar código de país sin + ni espacios.
  * Ejemplo Colombia: 573105676841
@@ -18,6 +18,10 @@ export const contact = {
       default: "Hola, quiero agendar una cita para una ecografía",
       allStudies: "Hola, quiero conocer todas las ecografías disponibles",
     },
+  },
+  instagram: {
+    url: "https://www.instagram.com/drdulcemaria/",
+    handle: "@drdulcemaria",
   },
   address: {
     street: "Calle 127 # 20-16",

@@ -136,6 +136,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 }
 .btn-ghost:hover { border-color: var(--petrol); }
 .btn-ghost::after { content: " →"; }
+.btn-instagram::after { content: none; }
 .btn-header {
   background: var(--teal);
   color: #fff;
@@ -613,6 +614,11 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   letter-spacing: -0.02em;
   color: var(--petrol);
 }
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 /* Reviews */
 .reviews { background: var(--ice); overflow-x: clip; }
@@ -821,7 +827,22 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
 .cta .eyebrow { color: var(--teal); }
 .cta h2 { margin-bottom: 12px; max-width: 16ch; color: var(--white); }
 .cta .lead { margin-bottom: 28px; color: rgba(255, 255, 255, 0.72); }
-.cta .btn { margin-bottom: 16px; }
+.cta .btn { margin-bottom: 0; }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cta .btn-instagram {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.cta .btn-instagram:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
 .cta .text-link { color: #d7eef1; }
 .cta .text-link:hover { color: var(--white); }
 
@@ -1047,12 +1068,18 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     gap: 12px;
     margin: 0 auto 10px;
   }
-  .hero-actions .btn-fill {
+  .hero-actions .btn-fill,
+  .hero-actions .btn-instagram {
     width: 100%;
     min-height: 56px;
     border-radius: 999px;
     font-size: 1.125rem;
     box-shadow: 0 6px 16px rgba(27, 180, 196, 0.18);
+  }
+  .hero-actions .btn-instagram {
+    box-shadow: none;
+    font-size: 1rem;
+    min-height: 52px;
   }
   .hero-secondary {
     width: auto;
@@ -1161,6 +1188,9 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     min-height: 52px;
     scroll-margin-bottom: calc(80px + env(safe-area-inset-bottom));
   }
+  .about-actions {
+    flex-direction: column;
+  }
   .study-card { padding: 16px 14px 14px; }
   .study-card strong { font-size: 0.84rem; }
   .study-card-desc { font-size: 0.72rem; }
@@ -1169,6 +1199,8 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   .reviews-head { align-items: flex-start; }
   .location-actions { flex-direction: column; }
   .location-actions .btn { width: 100%; }
+  .cta-actions { flex-direction: column; width: min(100%, 360px); }
+  .cta-actions .btn { width: 100%; }
   .location-map,
   .location-map iframe { min-height: 280px; }
   .footer-grid { grid-template-columns: 1fr; }
