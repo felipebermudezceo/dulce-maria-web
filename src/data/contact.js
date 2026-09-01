@@ -20,8 +20,8 @@ export const contact = {
     },
   },
   instagram: {
-    url: "https://www.instagram.com/drdulcemaria/",
-    handle: "@drdulcemaria",
+    url: "https://www.instagram.com/dradulcemaria_/",
+    handle: "@dradulcemaria_",
   },
   address: {
     street: "Calle 127 # 20-16",

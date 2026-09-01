@@ -885,10 +885,17 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   align-items: center;
   justify-content: flex-start;
 }
+.float-bar-actions {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
 .wa-fab {
   --wa-glow: 0 8px 18px rgba(37, 211, 102, 0.22), 0 0 16px 2px rgba(37, 211, 102, 0.16);
   flex-shrink: 0;
-  margin-left: auto;
   width: 56px;
   height: 56px;
   display: grid;
@@ -904,6 +911,24 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28), 0 0 22px 5px rgba(37, 211, 102, 0.26);
 }
 .wa-fab:active { transform: scale(0.96); }
+
+.ig-fab {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  box-shadow: 0 8px 18px rgba(214, 36, 159, 0.22), 0 0 16px 2px rgba(214, 36, 159, 0.16);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.ig-fab:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(214, 36, 159, 0.28), 0 0 22px 5px rgba(214, 36, 159, 0.26);
+}
+.ig-fab:active { transform: scale(0.96); }
 
 .reveal {
   opacity: 0;
@@ -1223,11 +1248,12 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   }
   .booking-notice strong { font-size: 0.78rem; }
   .booking-notice p { font-size: 0.72rem; }
-  .wa-fab {
+  .wa-fab,
+  .ig-fab {
     width: 52px;
     height: 52px;
   }
-  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  body { padding-bottom: calc(136px + env(safe-area-inset-bottom)); }
   .site-footer { padding-bottom: 24px; }
 }
 
@@ -1263,7 +1289,8 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     padding: 6px 10px;
   }
   .booking-notice strong { font-size: 0.68rem; }
-  .wa-fab { width: 48px; height: 48px; }
+  .wa-fab,
+  .ig-fab { width: 48px; height: 48px; }
 }
 
 @media (max-width: 375px) {
@@ -1291,7 +1318,8 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
     line-height: 1.48;
   }
   .hero-media > img { height: 248px; }
-  .wa-fab { width: 46px; height: 46px; }
+  .wa-fab,
+  .ig-fab { width: 46px; height: 46px; }
   .trust-pills li { font-size: 0.64rem; }
   .study-card { padding: 14px 12px 12px; }
   .study-card strong { font-size: 0.8rem; }
