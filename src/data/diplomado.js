@@ -78,9 +78,7 @@ export const courseModes = [
     kicker: "Clase individual",
     priceAmount: "50",
     currency: "USD",
-    // TODO: pegar aquí el link de pago de Bold cuando esté listo.
-    // Mientras esté vacío ("") el botón se muestra como "disponible pronto".
-    checkoutUrl: "",
+    checkoutUrl: "https://checkout.bold.co/payment/LNK_G9HAIPJMI8",
     enrollLabel: "Reservar clase magistral",
     comingSoonLabel: "Enlace de pago disponible pronto",
     hideMeeting: true,
