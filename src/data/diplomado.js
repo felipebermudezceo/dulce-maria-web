@@ -82,7 +82,8 @@ export const courseModes = [
     checkoutUrl: "https://checkout.bold.co/payment/LNK_W4QJRFHBLL",
     enrollLabel: "Reservar clase magistral",
     comingSoonLabel: "Enlace de pago disponible pronto",
-    hideMeeting: true,
+    meetingFirst: true,
+    meetingButtonLabel: "Agendar una cita",
     chargeNote:
       "El pago se procesa en dólares (USD) de forma segura con Bold. Escríbenos por WhatsApp para coordinar el tema y la fecha.",
     description:
