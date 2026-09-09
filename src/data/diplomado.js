@@ -62,10 +62,10 @@ export const courseModes = [
     currency: "USD",
     checkoutUrl: "https://checkout.bold.co/payment/LNK_RNEQ14784E",
     description:
-      "Combina la formación online con prácticas de 2 meses con pacientes reales para llevar tus conocimientos a otro nivel.",
+      "Combina la formación online con prácticas presenciales de 2 meses en Bogotá con pacientes reales para llevar tus conocimientos a otro nivel.",
     benefits: [
       "Formación online",
-      "Prácticas de 2 meses, de lunes a sábado",
+      "Prácticas presenciales en Bogotá, 2 meses de lunes a sábado",
       "Práctica con pacientes reales",
       "Acompañamiento profesional",
       "Integración entre teoría y práctica",
