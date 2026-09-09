@@ -57,10 +57,9 @@ export const courseModes = [
     title: "Práctico + Online",
     recommended: true,
     badge: "Recomendado",
-    priceAmount: "599",
-    compareAmount: "799",
+    priceAmount: "1200",
     currency: "USD",
-    checkoutUrl: "https://checkout.bold.co/payment/LNK_RNEQ14784E",
+    checkoutUrl: "https://checkout.bold.co/payment/LNK_P259NW0AK7",
     description:
       "Combina la formación online con prácticas presenciales de 2 meses en Bogotá con pacientes reales para llevar tus conocimientos a otro nivel.",
     benefits: [
