@@ -40,9 +40,9 @@ export const courseModes = [
     id: "online",
     title: "Online",
     recommended: false,
-    priceAmount: "199",
+    priceAmount: "700",
     currency: "USD",
-    checkoutUrl: "https://checkout.bold.co/payment/LNK_KFR1XLHMUR",
+    checkoutUrl: "https://checkout.bold.co/payment/LNK_0MRSWVIBF6",
     description:
       "Aprende desde donde estés con una modalidad flexible y enfocada en tu formación.",
     benefits: [
@@ -58,6 +58,7 @@ export const courseModes = [
     recommended: true,
     badge: "Recomendado",
     priceAmount: "1200",
+    compareAmount: "1500",
     currency: "USD",
     checkoutUrl: "https://checkout.bold.co/payment/LNK_P259NW0AK7",
     description:
