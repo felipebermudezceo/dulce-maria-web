@@ -59,6 +59,7 @@ export const courseModes = [
     badge: "Recomendado",
     priceAmount: "1200",
     compareAmount: "1500",
+    promoLabel: "PROMO",
     currency: "USD",
     checkoutUrl: "https://checkout.bold.co/payment/LNK_P259NW0AK7",
     description:

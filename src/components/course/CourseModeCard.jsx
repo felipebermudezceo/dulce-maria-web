@@ -13,6 +13,9 @@ export function CourseModeCard({ mode }) {
         {mode.kicker || (mode.recommended ? "Modalidad completa" : "Modalidad flexible")}
       </p>
       <h3>{mode.title}</h3>
+      {mode.promoLabel ? (
+        <span className="course-mode-promo">{mode.promoLabel}</span>
+      ) : null}
       <CoursePrice mode={mode} />
       <p>{mode.description}</p>
       <ul>
