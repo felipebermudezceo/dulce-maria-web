@@ -9,7 +9,9 @@ export function CourseModeCard({ mode }) {
       className={`course-mode-card${mode.recommended ? " is-featured" : ""}`}
     >
       {mode.badge ? <span className="course-mode-badge">{mode.badge}</span> : null}
-      <p className="course-mode-kicker">{mode.recommended ? "Modalidad completa" : "Modalidad flexible"}</p>
+      <p className="course-mode-kicker">
+        {mode.kicker || (mode.recommended ? "Modalidad completa" : "Modalidad flexible")}
+      </p>
       <h3>{mode.title}</h3>
       <CoursePrice mode={mode} />
       <p>{mode.description}</p>
@@ -22,23 +24,33 @@ export function CourseModeCard({ mode }) {
         ))}
       </ul>
       <div className="course-mode-actions">
-        <a
-          className="btn btn-fill"
-          href={mode.checkoutUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {courseModesSection.enrollLabel}
-        </a>
-        <a
-          className="course-mode-meeting"
-          href={getCalendlyUrl(mode.id)}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {courseModesSection.meetingLabel}
-        </a>
-        <p className="course-mode-charge-note">{courseModesSection.chargeNote}</p>
+        {mode.checkoutUrl ? (
+          <a
+            className="btn btn-fill"
+            href={mode.checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {mode.enrollLabel || courseModesSection.enrollLabel}
+          </a>
+        ) : (
+          <span className="btn btn-fill is-soon" aria-disabled="true">
+            {mode.comingSoonLabel || "Enlace de pago disponible pronto"}
+          </span>
+        )}
+        {mode.hideMeeting ? null : (
+          <a
+            className="course-mode-meeting"
+            href={getCalendlyUrl(mode.id)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {courseModesSection.meetingLabel}
+          </a>
+        )}
+        <p className="course-mode-charge-note">
+          {mode.chargeNote || courseModesSection.chargeNote}
+        </p>
       </div>
     </article>
   );

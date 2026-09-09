@@ -71,6 +71,31 @@ export const courseModes = [
       "Integración entre teoría y práctica",
     ],
   },
+  {
+    id: "clase-magistral",
+    title: "Clase Magistral",
+    recommended: false,
+    kicker: "Clase individual",
+    priceAmount: "50",
+    currency: "USD",
+    // TODO: pegar aquí el link de pago de Bold cuando esté listo.
+    // Mientras esté vacío ("") el botón se muestra como "disponible pronto".
+    checkoutUrl: "",
+    enrollLabel: "Reservar clase magistral",
+    comingSoonLabel: "Enlace de pago disponible pronto",
+    hideMeeting: true,
+    chargeNote:
+      "El pago se procesa en dólares (USD) de forma segura con Bold. Escríbenos por WhatsApp para coordinar el tema y la fecha.",
+    description:
+      "Una clase individual sobre el tema que tú elijas: resolución de dudas con una presentación personalizada del contenido que necesitas reforzar.",
+    benefits: [
+      "Sesión de 2 horas en vivo",
+      "Un solo tema, elegido por ti",
+      "Presentación preparada a tu medida",
+      "Espacio para resolver todas tus dudas",
+      "Atención totalmente personalizada",
+    ],
+  },
 ];
 
 export const courseSyllabusSection = {
