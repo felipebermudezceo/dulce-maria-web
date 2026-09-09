@@ -252,17 +252,6 @@
   width: 100%;
 }
 
-.course-mode-card .btn.course-mode-meeting-btn {
-  background: transparent;
-  color: var(--teal-deep);
-  border-color: var(--teal);
-}
-
-.course-mode-card .btn.course-mode-meeting-btn:hover {
-  background: var(--mint);
-  border-color: var(--teal-deep);
-}
-
 .course-mode-card .btn.is-soon {
   background: var(--ice);
   color: var(--muted);

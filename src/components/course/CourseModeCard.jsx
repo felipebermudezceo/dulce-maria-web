@@ -27,16 +27,6 @@ export function CourseModeCard({ mode }) {
         ))}
       </ul>
       <div className="course-mode-actions">
-        {mode.meetingFirst && !mode.hideMeeting ? (
-          <a
-            className="btn course-mode-meeting-btn"
-            href={mode.meetingUrl || getCalendlyUrl(mode.id)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {mode.meetingButtonLabel || "Agendar una cita"}
-          </a>
-        ) : null}
         {mode.checkoutUrl ? (
           <a
             className="btn btn-fill"
@@ -51,7 +41,7 @@ export function CourseModeCard({ mode }) {
             {mode.comingSoonLabel || "Enlace de pago disponible pronto"}
           </span>
         )}
-        {mode.hideMeeting || mode.meetingFirst ? null : (
+        {mode.hideMeeting ? null : (
           <a
             className="course-mode-meeting"
             href={getCalendlyUrl(mode.id)}
