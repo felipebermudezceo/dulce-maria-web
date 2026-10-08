@@ -4,8 +4,25 @@
  */
 
 .course-page {
+  /* Paleta llamativa, exclusiva de /diplomado. No usar en otras páginas. */
+  --course-accent: #ff5a36;
+  --course-accent-2: #ffb400;
+  --course-accent-deep: #e2431c;
   background: var(--white);
   overflow-x: clip;
+}
+
+.course-page .eyebrow {
+  color: var(--course-accent-deep);
+}
+
+.course-page .btn-fill {
+  background: linear-gradient(120deg, var(--course-accent) 0%, var(--course-accent-2) 100%);
+  box-shadow: 0 10px 24px rgba(255, 90, 54, 0.32);
+}
+
+.course-page .btn-fill:hover {
+  background: linear-gradient(120deg, var(--course-accent-deep) 0%, var(--course-accent) 100%);
 }
 
 .course-hero {
@@ -68,7 +85,7 @@
 }
 
 .course-hero-accent {
-  color: var(--teal);
+  color: var(--course-accent);
 }
 
 .course-hero-break {
@@ -152,7 +169,7 @@
   align-self: flex-start;
   padding: 4px 10px;
   border-radius: 999px;
-  background: var(--gold);
+  background: linear-gradient(120deg, var(--course-accent) 0%, var(--course-accent-2) 100%);
   color: var(--white);
   font-size: 0.68rem;
   font-weight: 800;
@@ -212,7 +229,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--course-accent-deep);
 }
 
 .course-mode-card p {
@@ -239,7 +256,7 @@
 .course-mode-card li svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--teal);
+  color: var(--course-accent-deep);
 }
 
 .course-mode-actions {
@@ -264,13 +281,13 @@
   justify-self: center;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--course-accent-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .course-mode-meeting:hover {
-  color: var(--petrol);
+  color: var(--course-accent);
 }
 
 .course-mode-card .course-mode-charge-note {
@@ -284,16 +301,16 @@
 .course-mode-card.is-featured {
   z-index: 1;
   padding: 32px 24px 28px;
-  border: 2px solid var(--teal);
-  background: linear-gradient(165deg, #e7f6f8 0%, #ffffff 46%);
+  border: 2px solid var(--course-accent);
+  background: linear-gradient(165deg, #fff3ea 0%, #ffffff 46%);
   box-shadow:
-    0 0 0 6px rgba(27, 180, 196, 0.16),
+    0 0 0 6px rgba(255, 90, 54, 0.16),
     0 20px 44px rgba(15, 58, 72, 0.14);
   transform: translateY(-8px);
 }
 
 .course-mode-card.is-featured .course-mode-kicker {
-  color: var(--teal-deep);
+  color: var(--course-accent-deep);
 }
 
 .course-mode-badge {
@@ -302,7 +319,7 @@
   right: 16px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: var(--teal);
+  background: linear-gradient(120deg, var(--course-accent) 0%, var(--course-accent-2) 100%);
   color: var(--white);
   font-size: 0.68rem;
   font-weight: 800;
@@ -316,8 +333,7 @@
   padding: 8px 14px;
   font-size: 0.76rem;
   letter-spacing: 0.1em;
-  background: var(--teal);
-  box-shadow: 0 8px 18px rgba(27, 180, 196, 0.38);
+  box-shadow: 0 8px 18px rgba(255, 90, 54, 0.38);
 }
 
 .course-syllabus {
@@ -340,7 +356,7 @@
 }
 
 .syllabus-item[open] {
-  border-color: var(--teal);
+  border-color: var(--course-accent);
   box-shadow: 0 10px 28px rgba(15, 58, 72, 0.07);
 }
 
@@ -359,7 +375,7 @@
 }
 
 .syllabus-item summary:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--course-accent);
   outline-offset: 2px;
   border-radius: 14px;
 }
@@ -372,14 +388,14 @@
   height: 34px;
   border-radius: 10px;
   background: var(--ice);
-  color: var(--teal);
+  color: var(--course-accent-deep);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
 
 .syllabus-item[open] .syllabus-num {
-  background: var(--teal);
+  background: var(--course-accent);
   color: #fff;
 }
 
@@ -398,7 +414,7 @@
 
 .syllabus-item[open] .syllabus-chevron {
   transform: rotate(180deg);
-  color: var(--teal);
+  color: var(--course-accent);
 }
 
 .syllabus-item ul {
@@ -424,7 +440,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--course-accent);
 }
 
 @media (min-width: 700px) {
@@ -460,7 +476,7 @@
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: var(--teal);
+  color: var(--course-accent-deep);
 }
 
 .course-benefit-card svg {
@@ -599,7 +615,7 @@
   }
 
   .course-hero-accent {
-    color: #4ec9d6;
+    color: var(--course-accent);
   }
 
   .course-hero .lead.course-hero-lead {

@@ -4,13 +4,31 @@
  */
 
 .infil-page {
+  /* Paleta pastel y sobria, exclusiva de /infiltraciones. No usar en otras páginas. */
+  --i-accent: #6b8d79;
+  --i-accent-deep: #4f6c5c;
+  --i-bg-soft: #eef3ef;
+  --i-bg-soft-2: #e9eef1;
   background: var(--white);
   overflow-x: clip;
 }
 
+.infil-page .eyebrow {
+  color: var(--i-accent-deep);
+}
+
+.infil-page .btn-fill {
+  background: var(--i-accent-deep);
+  box-shadow: 0 8px 18px rgba(79, 108, 92, 0.28);
+}
+
+.infil-page .btn-fill:hover {
+  background: #3d5649;
+}
+
 .infil-hero {
-  background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-soft) 55%, #156b7d 100%);
-  color: var(--white);
+  background: linear-gradient(165deg, var(--i-bg-soft) 0%, var(--i-bg-soft-2) 60%, var(--i-bg-soft) 100%);
+  color: var(--ink);
   padding: 64px 0 56px;
 }
 
@@ -18,25 +36,20 @@
   max-width: 640px;
 }
 
-.infil-hero .eyebrow {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .infil-hero h1 {
   margin: 0 0 16px;
   font-size: clamp(2.3rem, 7vw, 3.6rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
-  color: #fff;
+  color: var(--petrol);
 }
 
 .infil-hero-accent {
   display: block;
-  color: #4ec9d6;
+  color: var(--i-accent-deep);
 }
 
 .infil-hero .lead {
-  color: rgba(255, 255, 255, 0.92);
   max-width: 46ch;
   margin: 0 0 28px;
 }
@@ -48,13 +61,13 @@
 }
 
 .infil-hero-actions .btn-ghost {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--i-accent-deep);
+  border-color: #c6d4cc;
 }
 
 .infil-hero-actions .btn-ghost:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--i-accent-deep);
+  background: rgba(107, 141, 121, 0.08);
 }
 
 .infil-about {
@@ -66,6 +79,14 @@
   margin: 0 auto 36px;
   text-align: center;
   color: var(--muted);
+}
+
+.infil-about .course-benefit-card {
+  background: var(--i-bg-soft);
+}
+
+.infil-about .course-benefit-card svg {
+  color: var(--i-accent-deep);
 }
 
 .infil-about .course-benefit-card p {
@@ -89,7 +110,7 @@
   flex-direction: column;
   gap: 10px;
   padding: 26px 22px;
-  background: var(--ice);
+  background: var(--i-bg-soft);
   border-radius: var(--radius);
   border: 1px solid transparent;
   transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
@@ -102,7 +123,7 @@
   height: 44px;
   border-radius: 12px;
   background: var(--white);
-  color: var(--teal);
+  color: var(--i-accent-deep);
   box-shadow: 0 4px 14px rgba(15, 58, 72, 0.06);
 }
 
@@ -127,7 +148,7 @@
 @media (hover: hover) and (pointer: fine) {
   .type-card:hover {
     transform: translateY(-4px);
-    border-color: #c5e3e7;
+    border-color: #c6d4cc;
   }
 }
 
@@ -138,7 +159,7 @@
 }
 
 .infil-artrocentesis {
-  background: var(--ice);
+  background: var(--i-bg-soft-2);
   scroll-margin-top: calc(var(--header) + 12px);
 }
 
@@ -163,8 +184,8 @@
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: var(--mint);
-  color: var(--teal-deep);
+  background: var(--i-bg-soft);
+  color: var(--i-accent-deep);
 }
 
 .artrocentesis-copy {
@@ -197,7 +218,7 @@
 }
 
 .infil-joints {
-  background: var(--ice);
+  background: var(--i-bg-soft);
   scroll-margin-top: calc(var(--header) + 12px);
 }
 
@@ -230,7 +251,7 @@
 
 .joint-card svg {
   flex-shrink: 0;
-  color: var(--teal);
+  color: var(--i-accent-deep);
 }
 
 .infil-specialist {
@@ -246,7 +267,7 @@
   max-width: 760px;
   margin: 0 auto;
   padding: 32px;
-  background: var(--ice);
+  background: var(--i-bg-soft);
   border-radius: var(--radius);
   border: 1px solid var(--line);
 }
@@ -258,7 +279,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: var(--petrol);
+  background: var(--i-accent-deep);
   color: #fff;
   font-size: 1.3rem;
   font-weight: 800;
@@ -284,7 +305,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--i-accent-deep);
 }
 
 .specialist-copy p {
@@ -293,25 +314,21 @@
 }
 
 .infil-cta {
-  background: var(--petrol);
-  color: #fff;
+  background: var(--i-bg-soft);
+  color: var(--ink);
   text-align: center;
   padding: 72px 0;
 }
 
-.infil-cta .eyebrow {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .infil-cta h2 {
   margin: 0 0 12px;
-  color: #fff;
+  color: var(--petrol);
 }
 
 .infil-cta p {
   margin: 0 auto 28px;
   max-width: 48ch;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--muted);
 }
 
 @media (hover: hover) and (pointer: fine) {
