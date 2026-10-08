@@ -1,0 +1,328 @@
+/**
+ * Estilos exclusivos de /infiltraciones.
+ * No alteran la landing principal.
+ */
+
+.infil-page {
+  background: var(--white);
+  overflow-x: clip;
+}
+
+.infil-hero {
+  background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-soft) 55%, #156b7d 100%);
+  color: var(--white);
+  padding: 64px 0 56px;
+}
+
+.infil-hero-inner {
+  max-width: 640px;
+}
+
+.infil-hero .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.infil-hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.3rem, 7vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.infil-hero-accent {
+  display: block;
+  color: #4ec9d6;
+}
+
+.infil-hero .lead {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 46ch;
+  margin: 0 0 28px;
+}
+
+.infil-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.infil-hero-actions .btn-ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.infil-hero-actions .btn-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.infil-about {
+  background: var(--white);
+}
+
+.infil-about-lead {
+  max-width: 62ch;
+  margin: 0 auto 36px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.infil-about .course-benefit-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.infil-types {
+  background: var(--white);
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.type-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.type-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 22px;
+  background: var(--ice);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.type-card-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--teal);
+  box-shadow: 0 4px 14px rgba(15, 58, 72, 0.06);
+}
+
+.type-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  color: var(--petrol);
+}
+
+.type-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.type-card-indication strong {
+  color: var(--petrol);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .type-card:hover {
+    transform: translateY(-4px);
+    border-color: #c5e3e7;
+  }
+}
+
+@media (min-width: 700px) {
+  .type-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.infil-artrocentesis {
+  background: var(--ice);
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.artrocentesis-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(15, 58, 72, 0.04);
+}
+
+.artrocentesis-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--mint);
+  color: var(--teal-deep);
+}
+
+.artrocentesis-copy {
+  flex: 1;
+  min-width: 220px;
+}
+
+.artrocentesis-copy .eyebrow {
+  margin-bottom: 6px;
+}
+
+.artrocentesis-copy h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.artrocentesis-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.artrocentesis-card .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .artrocentesis-card {
+    padding: 24px;
+  }
+}
+
+.infil-joints {
+  background: var(--ice);
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.joint-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.joint-card {
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.joint-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  color: var(--petrol);
+  box-shadow: 0 4px 14px rgba(15, 58, 72, 0.04);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.joint-card svg {
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+.infil-specialist {
+  background: var(--white);
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.specialist-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px;
+  background: var(--ice);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.specialist-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--petrol);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.specialist-copy {
+  flex: 1;
+  min-width: 220px;
+}
+
+.specialist-copy strong {
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--petrol);
+}
+
+.specialist-copy span {
+  display: block;
+  margin: 2px 0 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.specialist-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.infil-cta {
+  background: var(--petrol);
+  color: #fff;
+  text-align: center;
+  padding: 72px 0;
+}
+
+.infil-cta .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.infil-cta h2 {
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.infil-cta p {
+  margin: 0 auto 28px;
+  max-width: 48ch;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .joint-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 58, 72, 0.08);
+  }
+}
+
+@media (max-width: 480px) {
+  .specialist-card {
+    padding: 24px;
+  }
+}

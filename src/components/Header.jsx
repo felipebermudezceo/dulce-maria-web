@@ -1,42 +1,43 @@
 import { useEffect, useState } from "react";
 import { site, navigation, headerCta } from "../data/content";
 import { courses } from "../data/courses";
+import { infiltracionesLink } from "../data/infiltraciones";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
 import { Link, useRouter } from "../lib/router";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-function CoursesLink({ className, onNavigate }) {
+function HeaderNavLink({ link, className, onNavigate }) {
   const { path } = useRouter();
-  if (!courses.visible) return null;
+  if (!link.visible) return null;
 
-  const active = path.startsWith("/diplomado");
+  const active = link.url?.startsWith("/") && path.startsWith(link.url);
   const classes = `${className}${active ? " is-active" : ""}`;
 
-  if (courses.url?.startsWith("/")) {
+  if (link.url?.startsWith("/")) {
     return (
-      <Link className={classes} to={courses.url} onClick={onNavigate}>
-        {courses.label}
+      <Link className={classes} to={link.url} onClick={onNavigate}>
+        {link.label}
       </Link>
     );
   }
 
   const handleClick = (event) => {
-    if (!courses.url) event.preventDefault();
+    if (!link.url) event.preventDefault();
     onNavigate?.();
   };
 
   return (
     <a
       className={classes}
-      href={courses.url || "#"}
+      href={link.url || "#"}
       onClick={handleClick}
-      title={courses.url ? undefined : "Configura el enlace en src/data/courses.js"}
-      {...(courses.url && courses.opensInNewTab
+      title={link.url ? undefined : "Configura el enlace correspondiente en src/data/"}
+      {...(link.url && link.opensInNewTab
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {})}
     >
-      {courses.label}
+      {link.label}
     </a>
   );
 }
@@ -114,7 +115,8 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <CoursesLink className="btn btn-header-ghost" />
+          <HeaderNavLink link={infiltracionesLink} className="btn btn-header-ghost" />
+          <HeaderNavLink link={courses} className="btn btn-header-ghost" />
           <a
             className="btn btn-header"
             href={whatsappUrl()}
