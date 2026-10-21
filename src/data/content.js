@@ -11,9 +11,9 @@ export const site = {
   name: "Ecografías Dra. Dulce María",
   clinicName: "Diagnóstico por Imágenes MÁS",
   logo: "/images/logo.png",
-  title: "Ecografías Dra. Dulce María | Diagnóstico por Imágenes MÁS",
+  title: "Ecografías en Bogotá | Dra. Dulce María · Diagnóstico por Imágenes MÁS",
   description:
-    "Ecografías en Bogotá con la Dra. Dulce María. Diagnósticos precisos y atención humana. Agenda tu cita por WhatsApp. Calle 127 # 20-16, Consultorio 514, Edificio Pluss 127.",
+    "Ecografías en Bogotá, norte (Calle 127, cerca de Unicentro). Obstétricas, abdominales, tiroides, mamarias, ginecológicas y doppler. Resultados el mismo día. Agenda por WhatsApp.",
 };
 
 export const navigation = [
@@ -21,6 +21,7 @@ export const navigation = [
   { href: "#servicios", label: "Ecografías" },
   { href: "#nosotros", label: "Nosotros" },
   { href: "#reseñas", label: "Reseñas" },
+  { href: "#preguntas", label: "Preguntas" },
   { href: "#ubicacion", label: "Ubicación" },
 ];
 

@@ -1,0 +1,17 @@
+# Permitir a todos los buscadores, incluidos los de ChatGPT (OpenAI) y Bing.
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://dulce-maria-web.vercel.app/sitemap.xml

@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { diplomado } from "../data/diplomado";
-import { site } from "../data/content";
+import { usePageMeta } from "../lib/seo";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { WhatsAppButton } from "../components/WhatsAppButton";
@@ -12,13 +10,10 @@ import { PricingProvider } from "../lib/pricing";
 import "../styles/course.css";
 
 export function Diplomado() {
-  useEffect(() => {
-    const previous = document.title;
-    document.title = `${diplomado.name} | ${site.clinicName}`;
-    return () => {
-      document.title = previous;
-    };
-  }, []);
+  usePageMeta(
+    "Diplomado en Ecografía Diagnóstica en Bogotá | Curso Online y Práctico",
+    "Diplomado y curso de ecografía diagnóstica con la Dra. Dulce María: modalidad online, práctico + online y clase magistral. Formación en ecografía en Bogotá y Colombia."
+  );
 
   return (
     <PricingProvider>

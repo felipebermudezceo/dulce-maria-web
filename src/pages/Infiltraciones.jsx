@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { infiltraciones } from "../data/infiltraciones";
-import { site } from "../data/content";
+import { usePageMeta } from "../lib/seo";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { WhatsAppButton } from "../components/WhatsAppButton";
@@ -15,13 +13,10 @@ import "../styles/course.css";
 import "../styles/infiltraciones.css";
 
 export function Infiltraciones() {
-  useEffect(() => {
-    const previous = document.title;
-    document.title = `${infiltraciones.name} | ${site.clinicName}`;
-    return () => {
-      document.title = previous;
-    };
-  }, []);
+  usePageMeta(
+    "Infiltraciones de Rodilla y Hombro en Bogotá | Guiadas por Ecografía",
+    "Infiltraciones articulares de rodilla y hombro en Bogotá guiadas por ecografía: corticoide, PRP (plasma rico en plaquetas) y ácido hialurónico. Artrocentesis de rodilla. Dr. Manuel Silva, Calle 127."
+  );
 
   return (
     <div className="infil-page">
