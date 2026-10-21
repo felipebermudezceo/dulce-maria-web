@@ -182,7 +182,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   margin: 0 auto;
   height: var(--header);
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   column-gap: 20px;
   min-width: 0;
@@ -194,6 +194,7 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   align-items: center;
   justify-content: center;
   gap: 26px;
+  min-width: 0;
 }
 .nav-desktop a {
   position: relative;
