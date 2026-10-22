@@ -22,8 +22,8 @@ export const privacyPolicy = {
     {
       title: "Quién es responsable de tus datos",
       body: [
-        "Diagnóstico por Imágenes MÁS — Dra. Dulce María. Calle 127 # 20-16, Consultorio 514, Edificio Pluss 127, Bogotá, Colombia.",
-        "Contacto para temas de datos personales: WhatsApp +57 310 567 6841.",
+        "Diagnóstico por Imágenes MÁS S.A.S., NIT 902.089.579-7. Calle 127 # 20-16, Consultorio 514, Edificio Pluss 127, Bogotá, Colombia.",
+        "Contacto para temas de datos personales: gerencia@diagnosticoporimagenesmas.com.co o WhatsApp +57 310 567 6841.",
       ],
     },
     {
@@ -50,7 +50,7 @@ export const privacyPolicy = {
     {
       title: "Tus derechos",
       body: [
-        "Puedes conocer, actualizar, corregir y pedir que se eliminen tus datos, y retirar tu autorización en cualquier momento. Para hacerlo, escríbenos por WhatsApp.",
+        "Puedes conocer, actualizar, corregir y pedir que se eliminen tus datos, y retirar tu autorización en cualquier momento. Para hacerlo, escríbenos a gerencia@diagnosticoporimagenesmas.com.co o por WhatsApp. Respondemos consultas en máximo 10 días hábiles y reclamos en máximo 15 días hábiles.",
         "Si consideras que no atendimos tu solicitud, puedes acudir a la Superintendencia de Industria y Comercio (SIC).",
       ],
     },
