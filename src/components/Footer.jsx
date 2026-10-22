@@ -1,7 +1,7 @@
 import { site, navigation, locationSection, hero } from "../data/content";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
-import { useRouter } from "../lib/router";
+import { Link, useRouter } from "../lib/router";
 
 export function Footer() {
   const { path } = useRouter();
@@ -46,6 +46,7 @@ export function Footer() {
           >
             {locationSection.directionsCta}
           </a>
+          <Link to="/privacidad">Política de privacidad</Link>
         </div>
       </div>
     </footer>

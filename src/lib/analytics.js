@@ -67,8 +67,46 @@ function onClick(event) {
   trackEvent([type, zoneOf(link), detail].filter(Boolean).join(" · "));
 }
 
-export function initAnalytics() {
-  if (!CLARITY_ID || typeof window === "undefined") return;
+// Consentimiento de cookies: Clarity solo se carga si la persona acepta.
+const CONSENT_KEY = "dm-cookies";
+const CONSENT_EVENT = "dm-consent-change";
+
+export function getConsent() {
+  try {
+    return localStorage.getItem(CONSENT_KEY); // "granted" | "denied" | null
+  } catch {
+    return null;
+  }
+}
+
+let started = false;
+function startClarity() {
+  if (started || !CLARITY_ID) return;
+  started = true;
   loadClarity(CLARITY_ID);
+  window.clarity("consent");
   document.addEventListener("click", onClick, { capture: true });
+}
+
+export function setConsent(value) {
+  try {
+    localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    // Sin almacenamiento: la elección vale solo para esta visita.
+  }
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
+  if (value === "granted") startClarity();
+  // Si retira el permiso con Clarity ya cargado, se recarga para descargarlo.
+  else if (started) window.location.reload();
+}
+
+export function onConsentChange(callback) {
+  const handler = (event) => callback(event.detail);
+  window.addEventListener(CONSENT_EVENT, handler);
+  return () => window.removeEventListener(CONSENT_EVENT, handler);
+}
+
+export function initAnalytics() {
+  if (typeof window === "undefined") return;
+  if (getConsent() === "granted") startClarity();
 }
