@@ -6,6 +6,7 @@ import { CoursePrice } from "./CoursePrice";
 export function CourseModeCard({ mode }) {
   return (
     <article
+      data-track-detail={mode.id}
       className={`course-mode-card${mode.recommended ? " is-featured" : ""}`}
     >
       {mode.badge ? <span className="course-mode-badge">{mode.badge}</span> : null}

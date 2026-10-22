@@ -6,7 +6,7 @@ import { InstagramIcon } from "./InstagramIcon";
 
 export function WhatsAppButton() {
   return (
-    <div className="float-bar">
+    <div className="float-bar" data-track-zone="flotante">
       <div className="float-bar-left">
         <BookingNotice />
       </div>
