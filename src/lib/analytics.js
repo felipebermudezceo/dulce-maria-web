@@ -1,7 +1,7 @@
 // Microsoft Clarity: mapas de calor, grabaciones y registro de clics en botones.
 // Pega aquí el ID del proyecto de clarity.microsoft.com (ej. "k8x2abc9de").
 // Mientras esté vacío no se carga nada.
-export const CLARITY_ID = "";
+export const CLARITY_ID = "z1q6an0dnf";
 
 function loadClarity(id) {
   window.clarity =
