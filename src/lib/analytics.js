@@ -8,9 +8,11 @@ export const GOOGLE_TAG_ID = "AW-18533153439";
 
 function loadGoogleTag(id) {
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
-    window.dataLayer.push(arguments);
-  };
+  window.gtag =
+    window.gtag ||
+    function gtag() {
+      window.dataLayer.push(arguments);
+    };
   window.gtag("js", new Date());
   window.gtag("config", id);
   const script = document.createElement("script");
@@ -83,7 +85,17 @@ function onClick(event) {
   trackEvent(type);
   trackEvent([type, zone, detail].filter(Boolean).join(" · "));
 
-  // Mismo clic hacia Google: evento con el tipo de botón, zona y detalle.
+  // Para Google Tag Manager: evento "clic_boton" con los mismos datos.
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "clic_boton",
+    boton: type,
+    zona: zone,
+    detalle: detail,
+    link_url: link.href,
+  });
+
+  // Mismo clic directo a Google Ads: evento con el tipo de botón, zona y detalle.
   if (typeof window.gtag === "function") {
     window.gtag("event", type.replace(/-/g, "_"), {
       boton: type,
@@ -125,6 +137,15 @@ export function setConsent(value) {
     // Sin almacenamiento: la elección vale solo para esta visita.
   }
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
+  if (typeof window.gtag === "function") {
+    const v = value === "granted" ? "granted" : "denied";
+    window.gtag("consent", "update", {
+      ad_storage: v,
+      ad_user_data: v,
+      ad_personalization: v,
+      analytics_storage: v,
+    });
+  }
   if (value === "granted") startClarity();
   // Si retira el permiso con todo ya cargado, se recarga para descargarlo.
   else if (started) window.location.reload();
