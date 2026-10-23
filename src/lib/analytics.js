@@ -3,24 +3,6 @@
 // Mientras esté vacío no se carga nada.
 export const CLARITY_ID = "z1q6an0dnf";
 
-// Etiqueta de Google (gtag.js) de la cuenta de Google Ads.
-export const GOOGLE_TAG_ID = "AW-18533153439";
-
-function loadGoogleTag(id) {
-  window.dataLayer = window.dataLayer || [];
-  window.gtag =
-    window.gtag ||
-    function gtag() {
-      window.dataLayer.push(arguments);
-    };
-  window.gtag("js", new Date());
-  window.gtag("config", id);
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
-  document.head.appendChild(script);
-}
-
 function loadClarity(id) {
   window.clarity =
     window.clarity ||
@@ -94,19 +76,10 @@ function onClick(event) {
     detalle: detail,
     link_url: link.href,
   });
-
-  // Mismo clic directo a Google Ads: evento con el tipo de botón, zona y detalle.
-  if (typeof window.gtag === "function") {
-    window.gtag("event", type.replace(/-/g, "_"), {
-      boton: type,
-      zona: zone,
-      detalle: detail || undefined,
-      link_url: link.href,
-    });
-  }
 }
 
-// Consentimiento de cookies: Clarity y Google solo se cargan si la persona acepta.
+// Consentimiento de cookies: Clarity solo se carga si la persona acepta.
+// Google Tag Manager carga desde index.html y respeta el modo de consentimiento.
 const CONSENT_KEY = "dm-cookies";
 const CONSENT_EVENT = "dm-consent-change";
 
@@ -126,7 +99,6 @@ function startClarity() {
     loadClarity(CLARITY_ID);
     window.clarity("consent");
   }
-  if (GOOGLE_TAG_ID) loadGoogleTag(GOOGLE_TAG_ID);
   document.addEventListener("click", onClick, { capture: true });
 }
 
