@@ -3,6 +3,22 @@
 // Mientras esté vacío no se carga nada.
 export const CLARITY_ID = "z1q6an0dnf";
 
+// Etiqueta de Google (gtag.js) de la cuenta de Google Ads.
+export const GOOGLE_TAG_ID = "AW-18533153439";
+
+function loadGoogleTag(id) {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", id);
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  document.head.appendChild(script);
+}
+
 function loadClarity(id) {
   window.clarity =
     window.clarity ||
@@ -62,12 +78,23 @@ function onClick(event) {
   // Reseñas y mapa usan el mismo enlace de Google Maps.
   if (type === "mapa" && link.closest(".reviews")) type = "resenas-google";
 
+  const zone = zoneOf(link);
   const detail = detailOf(link);
   trackEvent(type);
-  trackEvent([type, zoneOf(link), detail].filter(Boolean).join(" · "));
+  trackEvent([type, zone, detail].filter(Boolean).join(" · "));
+
+  // Mismo clic hacia Google: evento con el tipo de botón, zona y detalle.
+  if (typeof window.gtag === "function") {
+    window.gtag("event", type.replace(/-/g, "_"), {
+      boton: type,
+      zona: zone,
+      detalle: detail || undefined,
+      link_url: link.href,
+    });
+  }
 }
 
-// Consentimiento de cookies: Clarity solo se carga si la persona acepta.
+// Consentimiento de cookies: Clarity y Google solo se cargan si la persona acepta.
 const CONSENT_KEY = "dm-cookies";
 const CONSENT_EVENT = "dm-consent-change";
 
@@ -81,10 +108,13 @@ export function getConsent() {
 
 let started = false;
 function startClarity() {
-  if (started || !CLARITY_ID) return;
+  if (started) return;
   started = true;
-  loadClarity(CLARITY_ID);
-  window.clarity("consent");
+  if (CLARITY_ID) {
+    loadClarity(CLARITY_ID);
+    window.clarity("consent");
+  }
+  if (GOOGLE_TAG_ID) loadGoogleTag(GOOGLE_TAG_ID);
   document.addEventListener("click", onClick, { capture: true });
 }
 
@@ -96,7 +126,7 @@ export function setConsent(value) {
   }
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
   if (value === "granted") startClarity();
-  // Si retira el permiso con Clarity ya cargado, se recarga para descargarlo.
+  // Si retira el permiso con todo ya cargado, se recarga para descargarlo.
   else if (started) window.location.reload();
 }
 

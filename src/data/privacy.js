@@ -7,7 +7,7 @@
 
 export const cookieBanner = {
   text:
-    "Usamos cookies de analítica (Microsoft Clarity) para saber qué partes de la página se usan más y mejorarla. No recogemos tu nombre ni tus datos de salud.",
+    "Usamos cookies de analítica y medición (Microsoft Clarity y Google) para saber qué partes de la página se usan más, mejorarla y medir nuestros anuncios. No recogemos tu nombre ni tus datos de salud.",
   accept: "Aceptar",
   reject: "Rechazar",
   policyLink: "Política de privacidad",
@@ -15,7 +15,7 @@ export const cookieBanner = {
 
 export const privacyPolicy = {
   title: "Política de privacidad y cookies",
-  updated: "22 de octubre de 2026",
+  updated: "23 de octubre de 2026",
   intro:
     "En Ecografías Dra. Dulce María · Diagnóstico por Imágenes MÁS respetamos tu privacidad. Aquí te contamos qué datos se recogen cuando visitas esta página, para qué y cuáles son tus derechos, de acuerdo con la Ley 1581 de 2012 y el Decreto 1377 de 2013.",
   sections: [
@@ -31,13 +31,14 @@ export const privacyPolicy = {
       body: [
         "Esta página no tiene formularios y no pide tu nombre, documento ni información de salud.",
         "Si aceptas las cookies, Microsoft Clarity registra de forma anónima cómo usas la página: en qué botones haces clic, hasta dónde bajas, qué páginas visitas, el tipo de dispositivo y navegador, y tu ciudad o país aproximado. Clarity oculta automáticamente los textos que escribas.",
-        "Si rechazas las cookies, Clarity no se carga y no se registra nada de esto.",
+        "Si aceptas, también se carga la etiqueta de Google (Google Ads), que registra qué páginas visitas y en qué botones haces clic (por ejemplo, WhatsApp o pago), para saber si nuestros anuncios en Google funcionan.",
+        "Si rechazas las cookies, ni Clarity ni Google se cargan y no se registra nada de esto.",
       ],
     },
     {
       title: "Para qué los usamos",
       body: [
-        "Solo para entender qué partes de la página son más útiles, encontrar problemas (por ejemplo, botones que no responden) y mejorarla. No vendemos ni compartimos estos datos para publicidad.",
+        "Para entender qué partes de la página son más útiles, encontrar problemas (por ejemplo, botones que no responden), mejorarla y medir los resultados de nuestros anuncios en Google. No vendemos estos datos.",
       ],
     },
     {
