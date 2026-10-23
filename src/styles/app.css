@@ -1504,3 +1504,89 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); font-weight: 800; }
   }
   .cookie-banner-actions .btn { flex: 1; }
 }
+
+/* Promoción en ventana (Inicio) */
+body.promo-open { overflow: hidden; }
+.promo-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(15, 58, 72, 0.55);
+  animation: promo-fade 0.3s var(--ease);
+}
+.promo-dialog {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(15, 58, 72, 0.3);
+  animation: promo-rise 0.4s var(--ease);
+}
+.promo-image { display: block; }
+.promo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.promo-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--petrol);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(15, 58, 72, 0.16);
+  cursor: pointer;
+}
+.promo-close:hover { background: var(--white); color: var(--teal-deep); }
+.promo-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+.promo-wa {
+  background: var(--whatsapp);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.25);
+}
+.promo-wa:hover { background: #1fb959; transform: translateY(-1px); }
+.promo-dismiss {
+  padding: 8px 4px;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.promo-dismiss:hover { color: var(--petrol); text-decoration: underline; }
+/* El aviso de cookies queda por encima para poder responderlo */
+.cookie-banner { z-index: 70; }
+
+@keyframes promo-fade { from { opacity: 0; } }
+@keyframes promo-rise { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+
+@media (max-width: 640px) {
+  .promo-backdrop { place-items: start center; padding-top: calc(16px + env(safe-area-inset-top)); }
+  .promo-actions { flex-direction: column; gap: 6px; padding: 14px 16px 16px; }
+  .promo-wa { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-backdrop,
+  .promo-dialog { animation: none; }
+}

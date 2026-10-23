@@ -9,6 +9,7 @@ import { Location } from "../components/Location";
 import { CTA } from "../components/CTA";
 import { Footer } from "../components/Footer";
 import { WhatsAppButton } from "../components/WhatsAppButton";
+import { PromoModal } from "../components/PromoModal";
 
 export function Home() {
   useEffect(() => {
@@ -36,6 +37,7 @@ export function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <PromoModal />
     </>
   );
 }
