@@ -43,6 +43,11 @@ export const faqs = [
       "Escríbenos por WhatsApp al +57 310 567 6841, cuéntanos qué ecografía necesitas y te damos la cita más cercana. La atención es rápida y sin filas.",
   },
   {
+    question: "¿Cuál es el horario de atención?",
+    answer:
+      "Atendemos de lunes a viernes de 8:00 a. m. a 12:00 m. y de 1:30 p. m. a 4:00 p. m., y los sábados de 8:00 a. m. a 2:00 p. m. Los domingos no hay atención. Agenda tu cita por WhatsApp al +57 310 567 6841.",
+  },
+  {
     question: "¿Cuándo entregan los resultados de la ecografía?",
     answer:
       "Los resultados se entregan el mismo día, con informe confiable y respaldo médico.",

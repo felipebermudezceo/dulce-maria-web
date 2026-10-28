@@ -8,7 +8,20 @@
  * Ejemplo Colombia: 573105676841
  *
  * Los mensajes de cada ecografía están en src/data/services.js
+ *
+ * Si cambias el horario, actualiza también index.html
+ * (openingHoursSpecification, la pregunta del horario y el texto estático)
+ * y la pregunta del horario en src/data/faq.js.
  */
+
+export const hours = {
+  title: "Horario de atención",
+  rows: [
+    { days: "Lunes a viernes", times: ["8:00 a. m. – 12:00 m.", "1:30 p. m. – 4:00 p. m."] },
+    { days: "Sábados", times: ["8:00 a. m. – 2:00 p. m."] },
+    { days: "Domingos", times: ["Cerrado"] },
+  ],
+};
 
 export const contact = {
   whatsapp: {

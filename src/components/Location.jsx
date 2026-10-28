@@ -3,6 +3,7 @@ import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Reveal } from "./Reveal";
+import { OpeningHours } from "./OpeningHours";
 
 export function Location() {
   const { address } = contact;
@@ -20,6 +21,7 @@ export function Location() {
             <br />
             {address.city}
           </address>
+          <OpeningHours className="is-location" />
           <div className="location-actions">
             <a
               className="btn btn-fill"

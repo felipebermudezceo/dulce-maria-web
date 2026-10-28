@@ -2,6 +2,7 @@ import { site, navigation, locationSection, hero } from "../data/content";
 import { contact } from "../data/contact";
 import { whatsappUrl } from "../lib/whatsapp";
 import { Link, useRouter } from "../lib/router";
+import { OpeningHours } from "./OpeningHours";
 
 export function Footer() {
   const { path } = useRouter();
@@ -14,13 +15,16 @@ export function Footer() {
           <img src={site.logo} alt={site.clinicName} />
           <p>{site.name}</p>
         </div>
-        <address>
-          {contact.address.street}
-          <br />
-          {contact.address.suite}
-          <br />
-          {contact.address.city}
-        </address>
+        <div>
+          <address>
+            {contact.address.street}
+            <br />
+            {contact.address.suite}
+            <br />
+            {contact.address.city}
+          </address>
+          <OpeningHours className="is-footer" />
+        </div>
         <nav aria-label="Pie de página">
           {navigation.map((item) => (
             <a key={item.href} href={`${prefix}${item.href}`}>
