@@ -19,7 +19,7 @@ export const hours = {
   rows: [
     { days: "Lunes a viernes", times: ["8:00 a. m. – 12:00 m.", "1:30 p. m. – 4:00 p. m."] },
     { days: "Sábados", times: ["8:00 a. m. – 2:00 p. m."] },
-    { days: "Domingos", times: ["Cerrado"] },
+    { days: "Domingos y festivos", times: ["Cerrado"] },
   ],
 };
 

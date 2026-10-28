@@ -45,7 +45,7 @@ export const faqs = [
   {
     question: "¿Cuál es el horario de atención?",
     answer:
-      "Atendemos de lunes a viernes de 8:00 a. m. a 12:00 m. y de 1:30 p. m. a 4:00 p. m., y los sábados de 8:00 a. m. a 2:00 p. m. Los domingos no hay atención. Agenda tu cita por WhatsApp al +57 310 567 6841.",
+      "Atendemos de lunes a viernes de 8:00 a. m. a 12:00 m. y de 1:30 p. m. a 4:00 p. m., y los sábados de 8:00 a. m. a 2:00 p. m. Los domingos y festivos no hay atención. Agenda tu cita por WhatsApp al +57 310 567 6841.",
   },
   {
     question: "¿Cuándo entregan los resultados de la ecografía?",
